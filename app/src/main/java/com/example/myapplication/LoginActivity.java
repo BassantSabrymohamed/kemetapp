@@ -73,7 +73,7 @@ public class LoginActivity extends AppCompatActivity {
     private void register(String email, String password) {
         progressBar.setVisibility(View.VISIBLE);
 
-        firebaseAuth.createUserWithEmailAndPassword(email,password)
+        firebaseAuth.signInWithEmailAndPassword(email,password)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>()  {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
