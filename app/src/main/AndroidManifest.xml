@@ -9,9 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
-        <activity android:name=".ForgetPasswordActivity"></activity>
+        <activity android:name=".HomeActivity"></activity>
+        <activity android:name=".NewPasswordActivity" />
+        <activity android:name=".VerificationCodeActivity" />
+        <activity android:name=".ForgetPasswordActivity" />
         <activity android:name=".LoginActivity" />
-        <activity android:name=".RegisterActivity" />
+        <activity android:name=".SingUpActivity" />
         <activity
             android:name=".SplachActivity"
             android:exported="true">

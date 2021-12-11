@@ -19,18 +19,19 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class LoginActivity extends AppCompatActivity {
     private ProgressBar progressBar;
-    private EditText registerEmail,registerPass;
+    private EditText Email,Pass;
     private Button login;
     private FirebaseAuth firebaseAuth;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
         //finview
-        registerEmail=findViewById(R.id.registerEmail);
-        registerPass=findViewById(R.id.registerPass);
-        progressBar=findViewById(R.id.registerPtogress);
+        Email=findViewById(R.id.Email);
+        Pass=findViewById(R.id.Pass);
+        progressBar=findViewById(R.id.progress);
         //firebase
         firebaseAuth=FirebaseAuth.getInstance();
         //onclickl
@@ -43,26 +44,26 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
     private void  validationdata(){
-        String email=registerEmail.getText().toString().trim();
-        String password=registerPass.getText().toString().trim();
+        String email=Email.getText().toString().trim();
+        String password=Pass.getText().toString().trim();
         if(email.isEmpty()){
             Toast.makeText(LoginActivity.this, "Please add ur email", Toast.LENGTH_SHORT).show();
-            registerEmail.requestFocus();
+            Email.requestFocus();
             return;
         }
         if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
             Toast.makeText(LoginActivity.this, "Please add valid email", Toast.LENGTH_SHORT).show();
-            registerEmail.requestFocus();
+            Email.requestFocus();
             return;
         }
         if(password.isEmpty()){
             Toast.makeText(LoginActivity.this, "Please add ur password", Toast.LENGTH_SHORT).show();
-            registerPass.requestFocus();
+            Pass.requestFocus();
             return;
         }
         if(password.length()<6){
             Toast.makeText(LoginActivity.this, " password should be 6char", Toast.LENGTH_SHORT).show();
-            registerPass.requestFocus();
+            Pass.requestFocus();
             return;
         }
 
@@ -80,7 +81,7 @@ public class LoginActivity extends AppCompatActivity {
 
                         if(task.isSuccessful()){
                             progressBar.setVisibility(View.GONE);
-                            Toast.makeText(LoginActivity.this, "User Created Successfuly", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(LoginActivity.this, "sing in Successfuly", Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(LoginActivity.this,ForgetPasswordActivity.class));
                         }
                         //handel error
@@ -95,6 +96,7 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
-
-
+    public void forget(View view) {
+        startActivity(new Intent(LoginActivity.this, ForgetPasswordActivity.class));
     }
+}

@@ -8,4 +8,22 @@
     <string name="login">Login</string>
     <string name="forget_password">Forget Password ?</string>
     <string name="forgetpassword">ForgetPassword</string>
+    <string name="verification_code">Verification Code</string>
+    <string name="civilization">Civilization</string>
+    <string name="hotiel">Hotiel</string>
+    <string name="tourist_guide">Tourist Guide</string>
+    <string name="lemosin">Lemosin</string>
+    <string name="next">Next</string>
+
+
+    <string-array name="ge">
+        <item>Egypt</item>
+        <item>America</item>
+        <item>Algeria</item>
+        <item>Angola</item>
+        <item>Australia</item>
+        <item>Bahrain</item>
+        <item>Brazil</item>
+        <item>China</item>
+    </string-array>
 </resources>

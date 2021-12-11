@@ -36,7 +36,7 @@
             android:layout_width="350dp"
             android:layout_height="160dp"
             android:layout_gravity="center_horizontal"
-            android:layout_margin="50dp"
+            android:layout_margin="8dp"
             android:src="@drawable/login" />
 
         <com.google.android.material.textfield.TextInputLayout
@@ -44,14 +44,15 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="8dp"
             android:layout_marginTop="8dp"
-            android:layout_marginRight="8dp">
+            android:layout_marginRight="8dp"
+            >
 
             <EditText
-                android:id="@+id/registerEmail"
+                android:id="@+id/Email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/btn"
-                android:hint="Email"
+                android:hint="   Email"
                 android:inputType="textEmailAddress" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -65,7 +66,7 @@
             app:passwordToggleTint="@color/black">
 
             <EditText
-                android:id="@+id/registerPass"
+                android:id="@+id/Pass"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/btn"
@@ -78,6 +79,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
             android:text="@string/forget_password"
+            android:onClick="forget"
             android:textColor="@color/black" />
 
         <Button
@@ -87,23 +89,22 @@
             android:layout_gravity="center"
             android:background="@drawable/btn"
             android:backgroundTint="#05ADD1"
-            android:onClick="ForgetPassword"
             android:padding="14dp"
             android:text="@string/login"
             android:textAllCaps="false"
             android:textSize="20sp"
-            tools:ignore="OnClick" />
+             />
 
     </LinearLayout>
     <ProgressBar
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/registerPtogress"
+        android:id="@+id/progress"
         android:layout_gravity="center_horizontal"
         android:visibility="gone"/>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="horizontal">
 
         <ImageButton
