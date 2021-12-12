@@ -12,11 +12,27 @@ public class SplachActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splach);
+
+        ModelSaveData modaldata=new ModelSaveData(this);
+
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                startActivity(new Intent(SplachActivity.this, SingUpActivity.class));
-                finish();
+
+                if(modaldata.isUserLogin())
+                {
+                    startActivity(new Intent(SplachActivity.this, HomeActivity.class));
+
+                    finish();
+
+                }
+                else
+
+                {
+                    startActivity(new Intent(SplachActivity.this, SingUpActivity.class));
+
+                }
+
             }
         },3000);
     }

@@ -15,10 +15,12 @@ import java.util.ArrayList;
 public class Adapter  extends RecyclerView.Adapter<Adapter.za>{
     Context context;
     ArrayList<Modaldata> list;
+    OnClick onClick ;
 
-    public Adapter(Context context, ArrayList<Modaldata> list) {
+    public Adapter(Context context, ArrayList<Modaldata> list,OnClick onClick) {
         this.context = context;
         this.list = list;
+        this.onClick=onClick ;
     }
 
     @NonNull
@@ -32,6 +34,21 @@ public class Adapter  extends RecyclerView.Adapter<Adapter.za>{
     @Override
     public void onBindViewHolder(@NonNull Adapter.za holder, int position) {
         holder.Title.setText(list.get(position).getTitle());
+        holder.Image.setImageResource(list.get(position).getIamge());
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(position == 0)
+                {
+                    onClick.onItemClick("0");
+                }
+                else if(position ==1)
+                {
+                    onClick.onItemClick("1");
+                }
+            }
+        });
 
     }
 
@@ -47,5 +64,12 @@ public class Adapter  extends RecyclerView.Adapter<Adapter.za>{
             Title=itemView.findViewById(R.id.title);
            Image =itemView.findViewById(R.id.iamge);
         }
+    }
+
+
+    interface OnClick
+    {
+
+        void onItemClick(String pos);
     }
 }

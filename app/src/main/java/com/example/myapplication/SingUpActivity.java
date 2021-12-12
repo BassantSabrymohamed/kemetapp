@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Patterns;
+import android.view.Display;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -96,7 +97,7 @@ public class SingUpActivity extends AppCompatActivity {
             return;
         }
 
-        register(email, password);
+        register(email, password ,name);
         sendData(email,password,name);
     }
 
@@ -104,7 +105,7 @@ public class SingUpActivity extends AppCompatActivity {
 
 
 
-    private void register(String email, String password) {
+    private void register(String email, String password ,String name) {
         progressBar.setVisibility(View.VISIBLE);
 
         firebaseAuth.createUserWithEmailAndPassword(email, password)
@@ -113,6 +114,8 @@ public class SingUpActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
 
                         if (task.isSuccessful()) {
+                            ModelSaveData modelSaveData=new ModelSaveData(SingUpActivity.this);
+                            modelSaveData.savData(name,email,true);
                             progressBar.setVisibility(View.GONE);
                             Toast.makeText(SingUpActivity.this, "User Created Successfuly", Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(SingUpActivity.this, LoginActivity.class));

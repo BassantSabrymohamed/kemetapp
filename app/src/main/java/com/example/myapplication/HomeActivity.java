@@ -5,10 +5,11 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
-public class HomeActivity extends AppCompatActivity {
+public class HomeActivity extends AppCompatActivity implements Adapter.OnClick {
     RecyclerView recyclerView;
     Adapter adapter;
     Modaldata modeldata;
@@ -31,9 +32,20 @@ public class HomeActivity extends AppCompatActivity {
 
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new Adapter(this, list);
+        adapter = new Adapter(this, list, this);
         recyclerView.setAdapter(adapter);
 
     }
 
+    @Override
+    public void onItemClick(String pos) {
+        if(pos.equals("0"))
+        {
+            Toast.makeText(this,pos,Toast.LENGTH_LONG).show();
+        }
+        if(pos.equals("1"))
+        {
+            Toast.makeText(this,pos,Toast.LENGTH_LONG).show();
+        }
+    }
 }
