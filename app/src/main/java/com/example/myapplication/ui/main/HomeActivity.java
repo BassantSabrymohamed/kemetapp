@@ -4,11 +4,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Toast;
 
+import com.example.myapplication.CivilizationActivity;
 import com.example.myapplication.data.model.Modaldata;
 import com.example.myapplication.R;
+import com.example.myapplication.ui.LoginActivity;
 
 import java.util.ArrayList;
 
@@ -16,6 +21,8 @@ public class HomeActivity extends AppCompatActivity implements HomeAdapter.OnCli
     RecyclerView recyclerView;
     HomeAdapter homeAdapter;
     Modaldata modeldata;
+    private Context context;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,11 +47,13 @@ public class HomeActivity extends AppCompatActivity implements HomeAdapter.OnCli
 
     }
 
+
     @Override
     public void onItemClick(String pos) {
         if(pos.equals("0"))
         {
             Toast.makeText(this,pos,Toast.LENGTH_LONG).show();
+            startActivity(new Intent(HomeActivity.this, CivilizationActivity.class));
         }
         if(pos.equals("1"))
         {
@@ -59,4 +68,7 @@ public class HomeActivity extends AppCompatActivity implements HomeAdapter.OnCli
             Toast.makeText(this,pos,Toast.LENGTH_LONG).show();
         }
     }
+
+
+
 }

@@ -77,17 +77,6 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder>{
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            itemView.setOnClickListener(new View.OnClickListener() {
-
-                @Override
-                public void onClick(View view) {
-                    Intent intent=new Intent(context, CivilizationActivity.class);
-                    context.startActivity(intent);
-                }
-            });
-
-
-
             Title=itemView.findViewById(R.id.text_item);
            Image =itemView.findViewById(R.id.image);
 
