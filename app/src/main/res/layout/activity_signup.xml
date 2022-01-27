@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".SingUpActivity">
+    tools:context=".ui.auth.SignUpActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -57,7 +57,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/btn"
-                android:hint="@string/name"
+                android:hint="@string/please_enter_user_name"
                 android:inputType="text" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -65,7 +65,7 @@
         <Spinner
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/spnner"
+            android:id="@+id/spinner"
             android:layout_marginTop="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginLeft="8dp"
@@ -85,7 +85,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/btn"
-                android:hint="@string/email"
+                android:hint="@string/please_enter_your_email"
                 android:inputType="textEmailAddress" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -103,18 +103,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/btn"
-                android:hint="@string/password"
+                android:hint="@string/please_enter_your_password"
                 android:inputType="textPassword"
 
                 />
         </com.google.android.material.textfield.TextInputLayout>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:text="@string/login"
-            android:onClick="login"
-            android:textColor="@color/black" />
 
         <Button
             android:id="@+id/Signup"

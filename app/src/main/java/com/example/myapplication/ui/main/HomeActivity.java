@@ -1,4 +1,4 @@
-package com.example.myapplication;
+package com.example.myapplication.ui.main;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -7,11 +7,14 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 import android.widget.Toast;
 
+import com.example.myapplication.data.model.Modaldata;
+import com.example.myapplication.R;
+
 import java.util.ArrayList;
 
-public class HomeActivity extends AppCompatActivity implements Adapter.OnClick {
+public class HomeActivity extends AppCompatActivity implements HomeAdapter.OnClick {
     RecyclerView recyclerView;
-    Adapter adapter;
+    HomeAdapter homeAdapter;
     Modaldata modeldata;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,8 +35,8 @@ public class HomeActivity extends AppCompatActivity implements Adapter.OnClick {
 
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new Adapter(this, list, this);
-        recyclerView.setAdapter(adapter);
+        homeAdapter = new HomeAdapter(this, list, this);
+        recyclerView.setAdapter(homeAdapter);
 
     }
 
@@ -44,6 +47,14 @@ public class HomeActivity extends AppCompatActivity implements Adapter.OnClick {
             Toast.makeText(this,pos,Toast.LENGTH_LONG).show();
         }
         if(pos.equals("1"))
+        {
+            Toast.makeText(this,pos,Toast.LENGTH_LONG).show();
+        }
+        if(pos.equals("2"))
+        {
+            Toast.makeText(this,pos,Toast.LENGTH_LONG).show();
+        }
+        if(pos.equals("3"))
         {
             Toast.makeText(this,pos,Toast.LENGTH_LONG).show();
         }

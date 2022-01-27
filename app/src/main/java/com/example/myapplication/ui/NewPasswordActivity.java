@@ -1,4 +1,4 @@
-package com.example.myapplication;
+package com.example.myapplication.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,6 +8,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+
+import com.example.myapplication.R;
+import com.example.myapplication.ui.main.HomeActivity;
 
 public class NewPasswordActivity extends AppCompatActivity {
     private ProgressBar progressBar;

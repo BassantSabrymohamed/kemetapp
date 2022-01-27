@@ -9,14 +9,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
-        <activity android:name=".HomeActivity"></activity>
-        <activity android:name=".NewPasswordActivity" />
-        <activity android:name=".VerificationCodeActivity" />
-        <activity android:name=".ForgetPasswordActivity" />
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".SingUpActivity" />
+        <activity android:name=".CivilizationActivity"></activity>
+        <activity android:name=".ui.main.HomeActivity" />
+        <activity android:name=".ui.NewPasswordActivity" />
+        <activity android:name=".ui.VerificationCodeActivity" />
+        <activity android:name=".ui.ForgetPasswordActivity" />
+        <activity android:name=".ui.LoginActivity" />
+        <activity android:name=".ui.auth.SignUpActivity" />
         <activity
-            android:name=".SplachActivity"
+            android:name=".ui.SplachActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

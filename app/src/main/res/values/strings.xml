@@ -14,6 +14,17 @@
     <string name="tourist_guide">Tourist Guide</string>
     <string name="lemosin">Lemosin</string>
     <string name="next">Next</string>
+    <string name="profile">profile</string>
+    <string name="home">Home</string>
+    <string name="frindes">Frindes</string>
+    <string name="chats">Chats</string>
+    <string name="others">Others</string>
+    <string name="setting">Setting</string>
+    <string name="about">about</string>
+    <string name="logout">Logout</string>
+    <string name="please_enter_user_name">please Enter User Name</string>
+    <string name="please_enter_your_email">Please Enter Your Email</string>
+    <string name="please_enter_your_password">Please Enter Your password</string>
 
 
     <string-array name="ge">

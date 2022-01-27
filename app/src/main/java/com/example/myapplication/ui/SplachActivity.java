@@ -1,10 +1,15 @@
-package com.example.myapplication;
+package com.example.myapplication.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+
+import com.example.myapplication.data.storage.ModelSaveData;
+import com.example.myapplication.R;
+import com.example.myapplication.ui.auth.SignUpActivity;
+import com.example.myapplication.ui.main.HomeActivity;
 
 public class SplachActivity extends AppCompatActivity {
 
@@ -29,7 +34,8 @@ public class SplachActivity extends AppCompatActivity {
                 else
 
                 {
-                    startActivity(new Intent(SplachActivity.this, SingUpActivity.class));
+                    startActivity(new Intent(SplachActivity.this, LoginActivity.class));
+                    finish();
 
                 }
 

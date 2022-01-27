@@ -1,4 +1,4 @@
-package com.example.myapplication;
+package com.example.myapplication.ui;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,6 +12,9 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.example.myapplication.R;
+import com.example.myapplication.ui.auth.SignUpActivity;
+import com.example.myapplication.ui.main.HomeActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -47,7 +50,7 @@ public class LoginActivity extends AppCompatActivity {
         String email=Email.getText().toString().trim();
         String password=Pass.getText().toString().trim();
         if(email.isEmpty()){
-            Toast.makeText(LoginActivity.this, "Please add ur email", Toast.LENGTH_SHORT).show();
+            Toast.makeText(LoginActivity.this, " add email", Toast.LENGTH_SHORT).show();
             Email.requestFocus();
             return;
         }
@@ -82,7 +85,7 @@ public class LoginActivity extends AppCompatActivity {
                         if(task.isSuccessful()){
                             progressBar.setVisibility(View.GONE);
                             Toast.makeText(LoginActivity.this, "sing in Successfuly", Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(LoginActivity.this,ForgetPasswordActivity.class));
+                            startActivity(new Intent(LoginActivity.this, HomeActivity.class));
                         }
                         //handel error
                         else {
@@ -98,5 +101,9 @@ public class LoginActivity extends AppCompatActivity {
 
     public void forget(View view) {
         startActivity(new Intent(LoginActivity.this, ForgetPasswordActivity.class));
+    }
+
+    public void signup(View view) {
+        startActivity(new Intent(LoginActivity.this, SignUpActivity.class));
     }
 }

@@ -1,13 +1,11 @@
-package com.example.myapplication;
+package com.example.myapplication.ui.auth;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Patterns;
-import android.view.Display;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -15,6 +13,9 @@ import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.example.myapplication.ui.LoginActivity;
+import com.example.myapplication.data.storage.ModelSaveData;
+import com.example.myapplication.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -27,7 +28,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 
-public class SingUpActivity extends AppCompatActivity {
+public class SignUpActivity extends AppCompatActivity {
     private ProgressBar progressBar;
     private EditText signupName, signupEmail, signupPass;
     private Button Signup;
@@ -40,13 +41,13 @@ public class SingUpActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_singup);
+        setContentView(R.layout.activity_signup);
         //findview
         signupName = findViewById(R.id.Name);
         signupEmail = findViewById(R.id.Email);
         signupPass = findViewById(R.id.Pass);
         progressBar = findViewById(R.id.Progress);
-        spinner = findViewById(R.id.spnner);
+        spinner = findViewById(R.id.spinner);
         //firebase
         firebaseAuth = FirebaseAuth.getInstance();
         firestore= FirebaseFirestore.getInstance();
@@ -71,28 +72,28 @@ public class SingUpActivity extends AppCompatActivity {
         String email = signupEmail.getText().toString().trim();
         String password = signupPass.getText().toString().trim();
         if (name.isEmpty()) {
-            Toast.makeText(SingUpActivity.this, "Please enter ur name", Toast.LENGTH_SHORT).show();
+            Toast.makeText(SignUpActivity.this, "Please enter ur name", Toast.LENGTH_SHORT).show();
             signupName.requestFocus();
             return;
         }
 
         if (email.isEmpty()) {
-            Toast.makeText(SingUpActivity.this, "Please add ur email", Toast.LENGTH_SHORT).show();
+            Toast.makeText(SignUpActivity.this, "Please add ur email", Toast.LENGTH_SHORT).show();
             signupEmail.requestFocus();
             return;
         }
         if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-            Toast.makeText(SingUpActivity.this, "Please add valid email", Toast.LENGTH_SHORT).show();
+            Toast.makeText(SignUpActivity.this, "Please add valid email", Toast.LENGTH_SHORT).show();
             signupEmail.requestFocus();
             return;
         }
         if (password.isEmpty()) {
-            Toast.makeText(SingUpActivity.this, "Please add ur password", Toast.LENGTH_SHORT).show();
+            Toast.makeText(SignUpActivity.this, "Please add ur password", Toast.LENGTH_SHORT).show();
             signupPass.requestFocus();
             return;
         }
         if (password.length() < 6) {
-            Toast.makeText(SingUpActivity.this, " password should be 6char", Toast.LENGTH_SHORT).show();
+            Toast.makeText(SignUpActivity.this, " password should be 6char", Toast.LENGTH_SHORT).show();
             signupPass.requestFocus();
             return;
         }
@@ -114,16 +115,16 @@ public class SingUpActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
 
                         if (task.isSuccessful()) {
-                            ModelSaveData modelSaveData=new ModelSaveData(SingUpActivity.this);
+                            ModelSaveData modelSaveData=new ModelSaveData(SignUpActivity.this);
                             modelSaveData.savData(name,email,true);
                             progressBar.setVisibility(View.GONE);
-                            Toast.makeText(SingUpActivity.this, "User Created Successfuly", Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(SingUpActivity.this, LoginActivity.class));
+                            Toast.makeText(SignUpActivity.this, "User Created Successfuly", Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(SignUpActivity.this, LoginActivity.class));
                         }
                         //handel error
                         else {
                             progressBar.setVisibility(View.GONE);
-                            Toast.makeText(SingUpActivity.this, "Error" + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(SignUpActivity.this, "Error" + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
 
                         }
 
@@ -146,20 +147,20 @@ public class SingUpActivity extends AppCompatActivity {
         map.put("timestamp",format);
 // Add a new document with a generated ID
         firestore.collection("User")
-                .document("1")
+                .document()
                 .set(map)
 
         .addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void unused) {
                 progressBar.setVisibility(View.GONE);
-                Toast.makeText(SingUpActivity.this, "on Success", Toast.LENGTH_SHORT).show();
+                Toast.makeText(SignUpActivity.this, "on Success", Toast.LENGTH_SHORT).show();
             }
         })
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull  Exception e) {
-                        Toast.makeText(SingUpActivity.this, "Error", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(SignUpActivity.this, "Error", Toast.LENGTH_SHORT).show();
                     }
                 });
 
@@ -168,6 +169,6 @@ public class SingUpActivity extends AppCompatActivity {
 
 
     public void login(View view) {
-        startActivity(new Intent(SingUpActivity.this, LoginActivity.class));
+        startActivity(new Intent(SignUpActivity.this, LoginActivity.class));
     }
 }
