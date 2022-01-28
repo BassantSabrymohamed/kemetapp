@@ -4,43 +4,39 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
-import com.example.myapplication.data.model.Modaldata;
 import com.example.myapplication.R;
+import com.example.myapplication.data.model.ModelCivilization;
 
 import java.util.ArrayList;
 
-public class HomeActivity extends AppCompatActivity implements HomeAdapter.OnClick {
-    RecyclerView recyclerView;
-    HomeAdapter homeAdapter;
-    Modaldata modeldata;
-    private Context context;
+public class CivilizationActivity extends AppCompatActivity implements CivilizationAdapter.OnClick  {
+  private RecyclerView recyclerView;
+  private ModelCivilization modelCivilization;
+  private CivilizationAdapter civilizationAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
-        recyclerView = findViewById(R.id.rec);
-
-        ArrayList<Modaldata> list = new ArrayList<>();
-      Modaldata m1 = new Modaldata("Civilization",R.drawable.m);
-        list.add(m1);
-        Modaldata m2 = new Modaldata("Hotiel",R.drawable.b);
-        list.add(m2);
-       Modaldata m3 = new Modaldata("Lemosin",R.drawable.a);
-        list.add(m3);
-       Modaldata m4 = new Modaldata("Tourisist Guide",R.drawable.s);
-        list.add(m4);
-
+        setContentView(R.layout.activity_civilization);
+        recyclerView = findViewById(R.id.recyclerView);
+        ArrayList<ModelCivilization>list=new ArrayList<>();
+        ModelCivilization c1=new ModelCivilization("Pyramids",R.drawable.ba);
+        list.add(c1);
+        ModelCivilization c2=new ModelCivilization("Karnak Temple",R.drawable.t);
+        list.add(c2);
+        ModelCivilization c3=new ModelCivilization("Egyption Museum",R.drawable.h);
+        list.add(c3);
+        ModelCivilization c4=new ModelCivilization("Abu Simble Temple",R.drawable.g);
+        list.add(c4);
 
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        homeAdapter = new HomeAdapter(this, list, this);
-        recyclerView.setAdapter(homeAdapter);
+        civilizationAdapter = new CivilizationAdapter(this, list, this);
+        recyclerView.setAdapter(civilizationAdapter);
 
     }
 
@@ -50,12 +46,11 @@ public class HomeActivity extends AppCompatActivity implements HomeAdapter.OnCli
         if(pos.equals("0"))
         {
             Toast.makeText(this,pos,Toast.LENGTH_LONG).show();
-            startActivity(new Intent(HomeActivity.this, CivilizationActivity.class));
+
         }
         if(pos.equals("1"))
         {
             Toast.makeText(this,pos,Toast.LENGTH_LONG).show();
-            startActivity(new Intent(HomeActivity.this, HotileActivity.class));
         }
         if(pos.equals("2"))
         {
@@ -66,7 +61,4 @@ public class HomeActivity extends AppCompatActivity implements HomeAdapter.OnCli
             Toast.makeText(this,pos,Toast.LENGTH_LONG).show();
         }
     }
-
-
-
 }

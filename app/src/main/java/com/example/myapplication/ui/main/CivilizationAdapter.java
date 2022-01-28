@@ -1,6 +1,7 @@
 package com.example.myapplication.ui.main;
 
 import android.content.Context;
+import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,36 +11,39 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.myapplication.data.model.Modaldata;
 import com.example.myapplication.R;
+import com.example.myapplication.data.model.ModelCivilization;
+
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
+import java.util.List;
 
-public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder>{
-    Context context;
-    ArrayList<Modaldata> list;
-    OnClick onClick ;
+public class CivilizationAdapter extends RecyclerView.Adapter<CivilizationAdapter.ViewHolder> {
+    private Context context;
+    private List<ModelCivilization>list;
+     private OnClick onClick ;
 
-    public HomeAdapter(Context context, ArrayList<Modaldata> list, OnClick onClick) {
+    public CivilizationAdapter(Context context, ArrayList<ModelCivilization> list, CivilizationActivity onClick) {
         this.context = context;
         this.list = list;
-        this.onClick=onClick ;
+        this.onClick=onClick;
+
     }
 
     @NonNull
+    @NotNull
     @Override
-    public HomeAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public ViewHolder onCreateViewHolder(@NonNull @NotNull ViewGroup parent, int viewType) {
         View b= LayoutInflater.from(context).inflate(R.layout.item_view,parent,false);
         ViewHolder ViewHolder=new ViewHolder(b);
         return ViewHolder;
     }
 
-
     @Override
-    public void onBindViewHolder(@NonNull HomeAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull @NotNull ViewHolder holder, int position) {
         holder.Title.setText(list.get(position).getTitle());
         holder.Image.setImageResource(list.get(position).getIamge());
-
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -62,28 +66,29 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder>{
             }
         });
 
+
+
+    }
+    @Override
+    public int getItemCount() {
+        return list.size();
     }
 
-    @Override
-    public int getItemCount() { return list.size();}
-
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    class ViewHolder extends RecyclerView.ViewHolder{
         TextView Title;
         ImageView Image;
 
-        public ViewHolder(@NonNull View itemView) {
+        public ViewHolder(@NonNull @NotNull View itemView) {
             super(itemView);
             Title=itemView.findViewById(R.id.text_item);
-           Image =itemView.findViewById(R.id.image);
-
+            Image =itemView.findViewById(R.id.image);
         }
     }
-
-
     interface OnClick
     {
 
         void onItemClick(String pos);
     }
+
 
 }
