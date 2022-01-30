@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="20dp">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="240dp"
+        android:layout_margin="8dp"
+        android:background="@drawable/bord">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="40dp"
+                android:gravity="center"
+                android:text="  Name: BassantSabry"
+                android:textColor="#05ADD1"
+                android:textSize="23sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:text="Car Model"
+                android:textColor="#05ADD1"
+                android:textSize="23sp"
+                android:textStyle="bold" />
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="200dp"
+                    android:layout_marginTop="15dp"
+                    android:src="@drawable/ic_baseline_star_24" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginTop="15dp"
+                    android:src="@drawable/ic_baseline_star_24" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginTop="15dp"
+                    android:src="@drawable/ic_baseline_star_24" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginTop="15dp"
+                    android:src="@drawable/ic_baseline_star_border_24" />
+
+            </LinearLayout>
+            <Button
+                android:id="@+id/login"
+                android:layout_width="280dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/btn"
+                android:backgroundTint="#05ADD1"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="20dp"
+                android:text="OrderDriver"
+                android:textAllCaps="false"
+                android:textSize="20sp"
+                />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="25dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/gamer" />
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>
