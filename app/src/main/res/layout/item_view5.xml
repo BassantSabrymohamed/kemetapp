@@ -5,72 +5,67 @@
     android:layout_height="wrap_content"
     app:cardCornerRadius="20dp">
 
-    <RelativeLayout
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="240dp"
         android:layout_margin="8dp"
-        android:background="@drawable/bord">
+        android:background="@drawable/bord"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_margin="16dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/gamer" />
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
             android:orientation="vertical">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:id="@+id/text_1"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginLeft="55dp"
-                android:layout_marginTop="40dp"
-                android:gravity="center"
-                android:text="   Name:  BassantSabry"
+                android:padding="8dp"
                 android:textColor="#05ADD1"
-                android:textSize="23sp"
+                android:textSize="18sp"
                 android:textStyle="bold" />
 
             <TextView
-                android:layout_width="wrap_content"
+                android:id="@+id/text_2"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="10dp"
-                android:gravity="center"
-                android:text="Language"
+                android:layout_marginTop="8dp"
+                android:padding="8dp"
                 android:textColor="#05ADD1"
-                android:textSize="23sp"
                 android:textStyle="bold" />
 
             <ImageView
+                android:id="@+id/fiber"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="200dp"
-                android:layout_marginTop="10dp"
                 android:src="@drawable/ic_baseline_fiber_manual_record_24" />
 
 
             <Button
-                android:id="@+id/login"
-                android:layout_width="280dp"
-                android:layout_height="50dp"
+
+                android:id="@+id/order"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
+                android:layout_margin="8dp"
                 android:background="@drawable/btn"
                 android:backgroundTint="#05ADD1"
-                android:layout_marginTop="20dp"
-                android:layout_marginLeft="20dp"
                 android:text="@string/order"
                 android:textAllCaps="false"
-                android:textSize="20sp"
-                />
+                android:textSize="20sp" />
         </LinearLayout>
 
-        <ImageView
-            android:id="@+id/image"
-            android:layout_width="140dp"
-            android:layout_height="140dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="9dp"
-            android:scaleType="fitXY"
-            android:src="@drawable/gamer" />
-    </RelativeLayout>
+
+    </LinearLayout>
 
 </androidx.cardview.widget.CardView>

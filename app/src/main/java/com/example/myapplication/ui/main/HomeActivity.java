@@ -64,6 +64,7 @@ public class HomeActivity extends AppCompatActivity implements HomeAdapter.OnCli
         if(pos.equals("3"))
         {
             Toast.makeText(this,pos,Toast.LENGTH_LONG).show();
+            startActivity(new Intent(HomeActivity.this, TourGuideActivity.class));
         }
     }
 
