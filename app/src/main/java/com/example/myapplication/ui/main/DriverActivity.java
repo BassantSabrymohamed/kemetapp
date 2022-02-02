@@ -4,15 +4,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.example.myapplication.R;
-import com.example.myapplication.data.model.ModelCivilization;
 import com.example.myapplication.data.model.ModelDriver;
+import com.example.myapplication.data.model.ModelTourGuide;
 import com.google.firebase.firestore.DocumentChange;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
@@ -20,69 +19,42 @@ import com.google.firebase.firestore.Query;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CivilizationActivity extends AppCompatActivity implements CivilizationAdapter.OnClick  {
-  private RecyclerView recyclerView;
+public class DriverActivity extends AppCompatActivity {
+    private RecyclerView recyclerView;
     private FirebaseFirestore firebaseFirestore;
     private ProgressBar progressBar;
-    private CivilizationAdapter adapter;
-    private List<ModelCivilization> list;
+    private DriverAdapter adapter;
+    private List<ModelDriver> list;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_civilization);
+        setContentView(R.layout.activity_driver);
         recyclerView = findViewById(R.id.recyclerView);
         progressBar=findViewById(R.id.Progress);
         firebaseFirestore = FirebaseFirestore.getInstance();
 
         recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager((CivilizationActivity.this)));
+        recyclerView.setLayoutManager(new LinearLayoutManager((DriverActivity.this)));
         list=new ArrayList<>();
-        adapter=new CivilizationAdapter(CivilizationActivity.this,list);
+        adapter=new DriverAdapter(DriverActivity.this,list);
         recyclerView.setAdapter(adapter);
         getData();
 
-
-
     }
-
-
-
-
-    @Override
-    public void onItemClick(String pos) {
-        if(pos.equals("0"))
-        {
-            Toast.makeText(this,pos,Toast.LENGTH_LONG).show();
-
-        }
-        if(pos.equals("1"))
-        {
-            Toast.makeText(this,pos,Toast.LENGTH_LONG).show();
-        }
-        if(pos.equals("2"))
-        {
-            Toast.makeText(this,pos,Toast.LENGTH_LONG).show();
-        }
-        if(pos.equals("3"))
-        {
-            Toast.makeText(this,pos,Toast.LENGTH_LONG).show();
-        }
-    }
-
     private void getData(){
         progressBar.setVisibility(View.VISIBLE);
-        firebaseFirestore.collection("Civilization")
+        firebaseFirestore.collection("Lemosin")
                 .orderBy("time", Query.Direction.DESCENDING)
                 .addSnapshotListener((value, error) -> {
 
                     if (error==null){
                         if (value==null){
                             progressBar.setVisibility(View.GONE);
-                            Toast.makeText(CivilizationActivity.this,"value is null",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(DriverActivity.this,"value is null",Toast.LENGTH_SHORT).show();
 
                         }else {
                             for (DocumentChange documentChange: value.getDocumentChanges()){
-                                ModelCivilization model=documentChange.getDocument().toObject(ModelCivilization.class);
+                                ModelDriver model=documentChange.getDocument().toObject(ModelDriver.class);
                                 list.add(model);
                                 adapter.notifyDataSetChanged();
 
@@ -92,8 +64,9 @@ public class CivilizationActivity extends AppCompatActivity implements Civilizat
 
                     }else {
                         progressBar.setVisibility(View.GONE);
-                        Toast.makeText(CivilizationActivity.this,error.getMessage(),Toast.LENGTH_SHORT).show();
+                        Toast.makeText(DriverActivity.this,error.getMessage(),Toast.LENGTH_SHORT).show();
                     }
 
                 });
-}}
+    }
+}

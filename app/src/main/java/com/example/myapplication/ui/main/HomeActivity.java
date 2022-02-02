@@ -60,6 +60,7 @@ public class HomeActivity extends AppCompatActivity implements HomeAdapter.OnCli
         if(pos.equals("2"))
         {
             Toast.makeText(this,pos,Toast.LENGTH_LONG).show();
+            startActivity(new Intent(HomeActivity.this, DriverActivity.class));
         }
         if(pos.equals("3"))
         {

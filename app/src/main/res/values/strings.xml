@@ -26,7 +26,8 @@
     <string name="please_enter_your_email">Please Enter Your Email</string>
     <string name="please_enter_your_password">Please Enter Your password</string>
     <string name="order">Order</string>
-
+    <string name="orderdriver">OrderDriver</string>
+    <string name="driver">Driver</string>
 
 
     <string-array name="ge">

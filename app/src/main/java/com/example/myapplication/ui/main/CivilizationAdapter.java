@@ -11,6 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.myapplication.R;
 import com.example.myapplication.data.model.ModelCivilization;
 
@@ -24,11 +25,10 @@ public class CivilizationAdapter extends RecyclerView.Adapter<CivilizationAdapte
     private List<ModelCivilization>list;
      private OnClick onClick ;
 
-    public CivilizationAdapter(Context context, ArrayList<ModelCivilization> list, CivilizationActivity onClick) {
+    public CivilizationAdapter(Context context, List<ModelCivilization> list) {
         this.context = context;
         this.list = list;
-        this.onClick=onClick;
-
+        this.onClick = onClick;
     }
 
     @NonNull
@@ -42,8 +42,8 @@ public class CivilizationAdapter extends RecyclerView.Adapter<CivilizationAdapte
 
     @Override
     public void onBindViewHolder(@NonNull @NotNull ViewHolder holder, int position) {
-        holder.Title.setText(list.get(position).getTitle());
-        holder.Image.setImageResource(list.get(position).getIamge());
+        holder.setname(list.get(position).getName());
+        holder.setImage(list.get(position).getImage());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -75,13 +75,24 @@ public class CivilizationAdapter extends RecyclerView.Adapter<CivilizationAdapte
     }
 
     class ViewHolder extends RecyclerView.ViewHolder{
-        TextView Title;
+        TextView name;
         ImageView Image;
 
         public ViewHolder(@NonNull @NotNull View itemView) {
             super(itemView);
-            Title=itemView.findViewById(R.id.text_item);
+            name=itemView.findViewById(R.id.text_item);
             Image =itemView.findViewById(R.id.image);
+        }
+        void setname(String Name) {
+            name.setText("Name: " + Name);
+        }
+
+        void setImage(String url) {
+
+            Glide.with(context)
+                    .load(url)
+                    .placeholder(R.drawable.d)
+                    .into(Image);
         }
     }
     interface OnClick
