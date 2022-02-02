@@ -37,7 +37,7 @@ public class CivilizationActivity extends AppCompatActivity implements Civilizat
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager((CivilizationActivity.this)));
         list=new ArrayList<>();
-        adapter=new CivilizationAdapter(CivilizationActivity.this,list);
+        adapter=new CivilizationAdapter(CivilizationActivity.this,list,this);
         recyclerView.setAdapter(adapter);
         getData();
 

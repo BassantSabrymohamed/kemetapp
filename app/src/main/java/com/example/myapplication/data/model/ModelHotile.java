@@ -1,13 +1,30 @@
 package com.example.myapplication.data.model;
 
 public class ModelHotile {
-    String title;
-    int iamge;
-    public ModelHotile (String title ,int iamge){this.title=title;
-        this.iamge=iamge;}
-    public  String getTitle(){return title;}
-    public  int getIamge(){return iamge;}
-    public void setTitle(String title){this.title=title;}
-    public void setIamge(int iamge){this.iamge=iamge;}
+   private String Image;
+   private  String Name;
 
+    public ModelHotile(String image, String name) {
+       this. Image = image;
+       this. Name = name;
+    }
+
+    public ModelHotile() {
+    }
+
+    public String getImage() {
+        return Image;
+    }
+
+    public void setImage(String image) {
+        this.Image = image;
+    }
+
+    public String getName() {
+        return Name;
+    }
+
+    public void setName(String name) {
+       this. Name = name;
+    }
 }

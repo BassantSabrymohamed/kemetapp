@@ -25,7 +25,8 @@ public class CivilizationAdapter extends RecyclerView.Adapter<CivilizationAdapte
     private List<ModelCivilization>list;
      private OnClick onClick ;
 
-    public CivilizationAdapter(Context context, List<ModelCivilization> list) {
+
+    public CivilizationAdapter(Context context, List<ModelCivilization> list, OnClick onClick) {
         this.context = context;
         this.list = list;
         this.onClick = onClick;

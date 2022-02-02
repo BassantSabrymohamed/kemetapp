@@ -8,7 +8,6 @@ import android.os.Handler;
 
 import com.example.myapplication.data.storage.ModelSaveData;
 import com.example.myapplication.R;
-import com.example.myapplication.ui.auth.SignUpActivity;
 import com.example.myapplication.ui.main.HomeActivity;
 
 public class SplachActivity extends AppCompatActivity {

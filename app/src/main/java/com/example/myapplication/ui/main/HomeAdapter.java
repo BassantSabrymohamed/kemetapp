@@ -10,20 +10,24 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.myapplication.data.model.Modaldata;
 import com.example.myapplication.R;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.ArrayList;
+import java.util.List;
 
 public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder>{
     Context context;
-    ArrayList<Modaldata> list;
+    List<Modaldata> list;
     OnClick onClick ;
 
-    public HomeAdapter(Context context, ArrayList<Modaldata> list, OnClick onClick) {
+    public HomeAdapter(Context context, List<Modaldata> list, OnClick onClick) {
         this.context = context;
         this.list = list;
-        this.onClick=onClick ;
+        this.onClick = onClick;
     }
 
     @NonNull
@@ -37,8 +41,8 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder>{
 
     @Override
     public void onBindViewHolder(@NonNull HomeAdapter.ViewHolder holder, int position) {
-        holder.Title.setText(list.get(position).getTitle());
-        holder.Image.setImageResource(list.get(position).getIamge());
+        holder.setname(list.get(position).getName());
+        holder.setImage(list.get(position).getImage());
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -67,15 +71,25 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder>{
     @Override
     public int getItemCount() { return list.size();}
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView Title;
+    class ViewHolder extends RecyclerView.ViewHolder{
+        TextView name;
         ImageView Image;
 
-        public ViewHolder(@NonNull View itemView) {
+        public ViewHolder(@NonNull @NotNull View itemView) {
             super(itemView);
-            Title=itemView.findViewById(R.id.text_item);
-           Image =itemView.findViewById(R.id.image);
+            name=itemView.findViewById(R.id.text_item);
+            Image =itemView.findViewById(R.id.image);
+        }
+        void setname(String Name) {
+            name.setText("Name: " + Name);
+        }
 
+        void setImage(String url) {
+
+            Glide.with(context)
+                    .load(url)
+                    .placeholder(R.drawable.d)
+                    .into(Image);
         }
     }
 
