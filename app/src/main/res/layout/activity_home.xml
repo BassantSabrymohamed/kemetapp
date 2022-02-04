@@ -9,8 +9,10 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="#6C63FF">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="#05ADD1">
+
         <TextView
             android:id="@+id/home"
             android:layout_width="match_parent"
@@ -22,7 +24,10 @@
             android:layout_marginRight="16dp"
             android:layout_gravity="center_vertical"
             android:textStyle="bold"/>
+
+
     </LinearLayout>
+
 
     <fragment
         android:id="@+id/nav_host_fragment"
