@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -9,30 +9,40 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:background="#05ADD1"
-        >
-        <ImageView
-            android:layout_width="100dp"
-            android:layout_height="50dp"
-            android:layout_margin="10dp"
-            android:padding="10dp"
-            android:src="@drawable/ic_baseline_view_headline_24"/>
+        android:layout_height="50dp"
+        android:background="#6C63FF">
         <TextView
-            android:id="@+id/title"
-            android:layout_width="wrap_content"
+            android:id="@+id/home"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="20dp"
-            android:text="Home"
-            android:layout_marginRight="60dp"
-            android:layout_weight="1"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:textColor="@color/black"
-            android:gravity="center"
-            />
+            android:text="home"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_gravity="center_vertical"
+            android:textStyle="bold"/>
     </LinearLayout>
+
+    <fragment
+        android:id="@+id/nav_host_fragment"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/bottom_navigation"
+        app:defaultNavHost="true"
+        app:navGraph="@navigation/nav_graph" />
+
+
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_alignParentBottom="true"
+        android:background="#05ADD1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:menu="@menu/bottom_navigation_menu" />
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
@@ -50,4 +60,4 @@
         android:visibility="gone"/>
 
 
-</LinearLayout>
+</RelativeLayout>

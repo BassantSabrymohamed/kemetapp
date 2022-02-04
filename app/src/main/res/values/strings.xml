@@ -40,4 +40,8 @@
         <item>Brazil</item>
         <item>China</item>
     </string-array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="favrite">favrite</string>
+    <string name="search">search</string>
 </resources>
