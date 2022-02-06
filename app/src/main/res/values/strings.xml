@@ -28,6 +28,13 @@
     <string name="order">Order</string>
     <string name="orderdriver">OrderDriver</string>
     <string name="driver">Driver</string>
+    <string name="language">Language</string>
+    <string name="darkmode">DarkMode</string>
+    <string name="menu">Menu</string>
+    <string name="Title">Bassant</string>
+    <string name="Email">BassantSabry207@gamil.com</string>
+    <string name="open">Open</string>
+    <string name="close">Close</string>
 
 
     <string-array name="ge">

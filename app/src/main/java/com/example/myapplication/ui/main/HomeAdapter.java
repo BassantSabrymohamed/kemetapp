@@ -94,7 +94,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder>{
     }
 
 
-    interface OnClick
+    public interface OnClick
     {
 
         void onItemClick(String pos);

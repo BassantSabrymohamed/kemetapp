@@ -11,6 +11,5 @@
         android:text="ProfileFragment"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
-        android:textSize="50dp"
         android:gravity="center_horizontal"/>
 </RelativeLayout>

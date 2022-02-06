@@ -3,12 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.main.fragmant.SearchFragment">
+    tools:context=".ui.main.fragmant.SettingFragment">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="SearchFragment"
+        android:text="SettingFragment"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
         android:gravity="center_horizontal"/>
