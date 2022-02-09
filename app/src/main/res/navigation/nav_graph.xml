@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph.xml"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.myapplication.ui.main.fragmant.HomeFragment"
+        android:label="HomeFragment" />
+    <fragment
+        android:id="@+id/darkModeFragment"
+        android:name="com.example.myapplication.ui.main.fragmant.DarkModeFragment"
+        android:label="fragment_dark_mode"
+        tools:layout="@layout/fragment_dark_mode" />
+    <fragment
+        android:id="@+id/languageFragment"
+        android:name="com.example.myapplication.ui.main.fragmant.LanguageFragment"
+        android:label="fragment_language"
+        tools:layout="@layout/fragment_language" />
+    <fragment
+        android:id="@+id/logoutFragment"
+        android:name="com.example.myapplication.ui.main.fragmant.LogoutFragment"
+        android:label="fragment_logout"
+        tools:layout="@layout/fragment_logout" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.myapplication.ui.main.fragmant.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/settingFragment"
+        android:name="com.example.myapplication.ui.main.fragmant.SettingFragment"
+        android:label="fragment_setting"
+        tools:layout="@layout/fragment_setting" />
+</navigation>

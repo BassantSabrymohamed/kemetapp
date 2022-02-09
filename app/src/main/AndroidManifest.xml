@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
-        <activity android:name=".ui.main.HomeActivity" />
+        <activity android:name=".MainActivity"></activity>
         <activity android:name=".ui.main.DriverActivity" />
         <activity android:name=".ui.main.TourGuideActivity" />
         <activity android:name=".ui.main.HotileActivity" />

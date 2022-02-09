@@ -6,9 +6,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
+import com.example.myapplication.MainActivity;
 import com.example.myapplication.data.storage.ModelSaveData;
 import com.example.myapplication.R;
-import com.example.myapplication.ui.main.HomeActivity;
 
 public class SplachActivity extends AppCompatActivity {
 
@@ -25,7 +25,7 @@ public class SplachActivity extends AppCompatActivity {
 
                 if(modaldata.isUserLogin())
                 {
-                    startActivity(new Intent(SplachActivity.this, HomeActivity.class));
+                    startActivity(new Intent(SplachActivity.this, MainActivity.class));
 
                     finish();
 

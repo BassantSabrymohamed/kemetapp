@@ -9,8 +9,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 
+import com.example.myapplication.MainActivity;
 import com.example.myapplication.R;
-import com.example.myapplication.ui.main.HomeActivity;
 
 public class NewPasswordActivity extends AppCompatActivity {
     private ProgressBar progressBar;
@@ -26,7 +26,7 @@ public class NewPasswordActivity extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(NewPasswordActivity.this, HomeActivity.class));
+                startActivity(new Intent(NewPasswordActivity.this, MainActivity.class));
             }
         });
     }

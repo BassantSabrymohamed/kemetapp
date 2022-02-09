@@ -19,7 +19,6 @@ import com.example.myapplication.R;
 import com.example.myapplication.data.model.Modaldata;
 import com.example.myapplication.ui.main.CivilizationActivity;
 import com.example.myapplication.ui.main.DriverActivity;
-import com.example.myapplication.ui.main.HomeActivity;
 import com.example.myapplication.ui.main.HomeAdapter;
 import com.example.myapplication.ui.main.HotileActivity;
 import com.example.myapplication.ui.main.TourGuideActivity;
