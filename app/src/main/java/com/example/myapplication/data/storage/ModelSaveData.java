@@ -15,11 +15,17 @@ public class ModelSaveData {
     private static final String key_name ="name" ;
     private static final String isLogin = "status" ;
 
+
+
+
     public  ModelSaveData(Context  context)
     {
         sharedPreferences=context.getSharedPreferences(file_name, Context.MODE_PRIVATE);
         editor=sharedPreferences.edit();
     }
+
+
+
 
     public void savData(String name , String email, boolean status)
     {
@@ -29,6 +35,11 @@ public class ModelSaveData {
         editor.apply();
         editor.commit();
 
+
+    }
+    public void deleteData(){
+        editor.clear();
+        editor.apply();
 
     }
     public HashMap<String ,String> loadData()

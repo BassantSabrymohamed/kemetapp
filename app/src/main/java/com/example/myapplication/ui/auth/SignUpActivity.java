@@ -52,7 +52,7 @@ public class SignUpActivity extends AppCompatActivity {
         firebaseAuth = FirebaseAuth.getInstance();
         firestore= FirebaseFirestore.getInstance();
         //onclickl
-        Signup = findViewById(R.id.Signup);
+        Signup = findViewById(R.id.SignUp);
 
 
         Signup.setOnClickListener(new View.OnClickListener() {

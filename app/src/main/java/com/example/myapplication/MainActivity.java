@@ -8,11 +8,18 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.ConditionVariable;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.example.myapplication.data.storage.ModelSaveData;
+import com.example.myapplication.ui.LoginActivity;
+import com.example.myapplication.ui.SplachActivity;
 import com.example.myapplication.ui.main.fragmant.DarkModeFragment;
 import com.example.myapplication.ui.main.fragmant.HomeFragment;
 import com.example.myapplication.ui.main.fragmant.LanguageFragment;
@@ -20,6 +27,7 @@ import com.example.myapplication.ui.main.fragmant.LogoutFragment;
 import com.example.myapplication.ui.main.fragmant.ProfileFragment;
 import com.example.myapplication.ui.main.fragmant.SettingFragment;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -27,10 +35,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private DrawerLayout drawerLayout;
     private NavigationView navigationView;
     private Toolbar toolbar;
+    private FirebaseAuth firebaseAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        firebaseAuth=FirebaseAuth.getInstance();
         drawerLayout=findViewById(R.id.drawer);
         navigationView=findViewById(R.id.nav_menu);
         toolbar=findViewById(R.id.toolbar);
@@ -71,12 +81,26 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new LanguageFragment()).commit();
                 break;
             case R.id.nav_logout:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new LogoutFragment()).commit();
+               logout();
                 break;
         }
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
     }
+
+    private void logout() {
+        ModelSaveData modaldata=new ModelSaveData(this);
+        modaldata.deleteData();
+        firebaseAuth.signOut();
+        sendToLogin();
+    }
+
+    private void sendToLogin() {
+        Intent intent=new Intent(getApplicationContext(), SplachActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
 
     @Override
     public void onBackPressed() {

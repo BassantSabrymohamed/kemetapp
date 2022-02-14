@@ -2,17 +2,24 @@ package com.example.myapplication.ui.main.fragmant;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatDelegate;
+import androidx.appcompat.widget.SwitchCompat;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CompoundButton;
 
 import com.example.myapplication.R;
 
+import org.jetbrains.annotations.NotNull;
+
 
 public class DarkModeFragment extends Fragment {
-
+private SwitchCompat switchCompat;
 
 
     public DarkModeFragment() {
@@ -27,4 +34,31 @@ public class DarkModeFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_dark_mode, container, false);
     }
 
+    @Override
+    public void onViewCreated(@NonNull @NotNull View view, @Nullable  Bundle savedInstanceState) {
+        if (AppCompatDelegate.getDefaultNightMode()==AppCompatDelegate.MODE_NIGHT_YES){
+            setTheme(R.style.Theme_Dark);
+        }else{
+           setTheme(R.style.Theme_Light);
+        }
+
+
+        super.onViewCreated(view, savedInstanceState);
+        switchCompat=view.findViewById(R.id.bt_switch);
+        switchCompat.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
+                if (isChecked){
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+
+                }else {
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+
+                }
+            }
+        });
+    }
+
+    private void setTheme(int theme_light) {
+    }
 }

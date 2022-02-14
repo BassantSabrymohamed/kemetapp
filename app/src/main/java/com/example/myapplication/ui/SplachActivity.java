@@ -9,21 +9,25 @@ import android.os.Handler;
 import com.example.myapplication.MainActivity;
 import com.example.myapplication.data.storage.ModelSaveData;
 import com.example.myapplication.R;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class SplachActivity extends AppCompatActivity {
-
+    private FirebaseAuth firebaseAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splach);
+        firebaseAuth=FirebaseAuth.getInstance();
 
-        ModelSaveData modaldata=new ModelSaveData(this);
+
 
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-
-                if(modaldata.isUserLogin())
+                FirebaseUser currentUser= firebaseAuth.getCurrentUser();
+                ModelSaveData modaldata=new ModelSaveData(SplachActivity.this);
+                if(currentUser!= null&& modaldata.isUserLogin())
                 {
                     startActivity(new Intent(SplachActivity.this, MainActivity.class));
 
