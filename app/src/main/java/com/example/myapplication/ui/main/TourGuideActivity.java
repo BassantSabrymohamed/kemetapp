@@ -44,6 +44,13 @@ public class  TourGuideActivity extends AppCompatActivity {
         progressBar=findViewById(R.id.Progress);
         firebaseFirestore = FirebaseFirestore.getInstance();
 
+        findViewById(R.id.back).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager((TourGuideActivity.this)));
 

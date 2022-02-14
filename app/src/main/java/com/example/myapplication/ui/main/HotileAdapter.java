@@ -88,7 +88,7 @@ public class HotileAdapter extends RecyclerView.Adapter<HotileAdapter.ViewHolder
             Image =itemView.findViewById(R.id.image);
         }
         void setname(String Name) {
-            name.setText("Name: " + Name);
+            name.setText(" " + Name);
         }
 
         void setImage(String url) {

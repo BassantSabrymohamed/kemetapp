@@ -9,6 +9,7 @@ import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -34,6 +35,7 @@ public class SignUpActivity extends AppCompatActivity {
     private Button Signup;
     private FirebaseAuth firebaseAuth;
     private Spinner spinner;
+    private ImageView image;
   private   FirebaseFirestore firestore;
 
 
@@ -53,6 +55,13 @@ public class SignUpActivity extends AppCompatActivity {
         firestore= FirebaseFirestore.getInstance();
         //onclickl
         Signup = findViewById(R.id.SignUp);
+
+        findViewById(R.id.back).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
 
 
         Signup.setOnClickListener(new View.OnClickListener() {

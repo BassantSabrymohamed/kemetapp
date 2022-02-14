@@ -34,6 +34,13 @@ public class CivilizationActivity extends AppCompatActivity implements Civilizat
         progressBar=findViewById(R.id.Progress);
         firebaseFirestore = FirebaseFirestore.getInstance();
 
+        findViewById(R.id.back).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager((CivilizationActivity.this)));
         list=new ArrayList<>();

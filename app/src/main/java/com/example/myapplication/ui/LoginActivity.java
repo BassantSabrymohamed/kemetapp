@@ -37,6 +37,14 @@ public class LoginActivity extends AppCompatActivity {
         progressBar=findViewById(R.id.progress);
         //firebase
         firebaseAuth=FirebaseAuth.getInstance();
+
+
+        findViewById(R.id.back).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
         //onclickl
         login=findViewById(R.id.login);
         login.setOnClickListener(new View.OnClickListener() {

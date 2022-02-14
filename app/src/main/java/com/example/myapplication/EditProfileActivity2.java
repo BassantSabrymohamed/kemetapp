@@ -1,6 +1,7 @@
 package com.example.myapplication;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -24,7 +25,13 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.ListenerRegistration;
+import com.google.firebase.firestore.SetOptions;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -36,10 +43,14 @@ public class EditProfileActivity2 extends AppCompatActivity {
     private static final String KEY_Name="name";
     private static final String KEY_Phone="phone";
     private static final String KEY_Nationality="nationality";
+    private static final String KEY_Gender=" gender";
     private static final String KEY_Day="day";
-    private static final String KEY_month="month";
+    private static final String KEY_Month="month";
     private static final String KEY_Year="year";
     private static final String KEY_Image="image";
+    private FirebaseFirestore db=FirebaseFirestore.getInstance();
+    private DocumentReference data=db.document("User/profile");
+
 
 
 
@@ -52,8 +63,7 @@ public class EditProfileActivity2 extends AppCompatActivity {
     private FirebaseAuth firebaseAuth;
     private Spinner spinner1,spinner2,spinner3,spinner4;
     private FirebaseFirestore firestore;
-    int i=0;
-    EditText name;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -78,6 +88,10 @@ public class EditProfileActivity2 extends AppCompatActivity {
 
 
     }
+
+
+
+
     public void Savedata (View v){
         String name=Name.getText().toString();
         String phone=Phone.getText().toString();
@@ -95,11 +109,8 @@ public class EditProfileActivity2 extends AppCompatActivity {
         map.put("phone",phone);
         map.put("image","null");
 
-        if (Male.isChecked()){
 
-        }
-        firestore.collection("profile").document("User").set(map)
-
+       data.set(map)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void unused) {
@@ -117,17 +128,75 @@ public class EditProfileActivity2 extends AppCompatActivity {
                  });
     }
 
+public void UpdateUser(View v){
+
+    String name=Name.getText().toString();
+    String phone=Phone.getText().toString();
+    String Nationality=spinner1.getSelectedItem().toString();
+    String Day=spinner2.getSelectedItem().toString();
+    String Month=spinner3.getSelectedItem().toString();
+    String Year=spinner4.getSelectedItem().toString();
+
+
+   // HashMap<String, Object> map = new HashMap<>();
+   // map.put(KEY_Name, name);
+   // map.put(KEY_Phone,phone);
+  //  map.put(KEY_Nationality, Nationality);
+   // map.put(KEY_Day,Day);
+   // map.put(KEY_Month,Month);
+   // map.put(KEY_Year,Year);
+
+    //data.set(map, SetOptions.merge());
+    data.update(KEY_Name,name);
+    data.update(KEY_Phone,phone);
+    data.update(KEY_Nationality,Nationality);
+    data.update(KEY_Day,Day);
+    data.update(KEY_Month,Month);
+    data.update(KEY_Year,Year);
 
 
 
+}
 
 
 
+    public void deletUser(View view) {
 
+        // HashMap<String, Object> map = new HashMap<>();
+        // map.put(KEY_Name, name);
+        // map.put(KEY_Phone,phone);
+        //  map.put(KEY_Nationality, Nationality);
+        // map.put(KEY_Day,Day);
+        // map.put(KEY_Month,Month);
+        // map.put(KEY_Year,Year);
+
+       // data.update(KEY_Name,name);
+       // data.update(KEY_Phone,phone);
+       // data.update(KEY_Nationality,Nationality);
+       // data.update(KEY_Day,Day);
+        //data.update(KEY_Month,Month);
+       // data.update(KEY_Year,Year);
+
+        data.update(KEY_Name, FieldValue.delete());
+        data.update(KEY_Phone,FieldValue.delete());
+        data.update(KEY_Nationality,FieldValue.delete());
+        data.update(KEY_Day,FieldValue.delete());
+        data.update(KEY_Month,FieldValue.delete());
+        data.update(KEY_Year,FieldValue.delete());
+    }
+
+
+    public void Delete(View view) {
+        startActivity(new Intent(EditProfileActivity2.this, ProfileFragment.class));
+        data.delete();
+    }
 
 
 
     public void UserProfile(View view) {
         startActivity(new Intent(EditProfileActivity2.this, ProfileFragment.class));
     }
+
+
+
 }

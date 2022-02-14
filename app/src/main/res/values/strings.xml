@@ -152,6 +152,7 @@
     <string name="year">Year</string>
     <string name="day">Day</string>
     <string name="load">load</string>
+    <string name="delete">Delete</string>
 
 
 </resources>

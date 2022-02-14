@@ -85,7 +85,7 @@ public class CivilizationAdapter extends RecyclerView.Adapter<CivilizationAdapte
             Image =itemView.findViewById(R.id.image);
         }
         void setname(String Name) {
-            name.setText("Name: " + Name);
+            name.setText(" " + Name);
         }
 
         void setImage(String url) {

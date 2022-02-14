@@ -57,7 +57,7 @@ public class ProfileFragment extends Fragment {
     private static final String KEY_Image="image";
 
     private FirebaseFirestore db=FirebaseFirestore.getInstance();
-    private DocumentReference data=db.document("profile/User");
+    private DocumentReference data=db.document("User/profile");
     private ListenerRegistration dataListerner;
 
 

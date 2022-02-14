@@ -81,7 +81,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder>{
             Image =itemView.findViewById(R.id.image);
         }
         void setname(String Name) {
-            name.setText("Name: " + Name);
+            name.setText(" " + Name);
         }
 
         void setImage(String url) {

@@ -12,10 +12,12 @@
         android:orientation="horizontal"
         android:background="#05ADD1">
         <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="8dp"
-            android:src="@drawable/ic_baseline_navigate_before_24"/>
+            android:id="@+id/back"
+            android:padding="8dp"
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_back"/>
         <TextView
             android:id="@+id/title"
             android:layout_width="500dp"
