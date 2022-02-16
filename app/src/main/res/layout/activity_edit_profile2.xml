@@ -5,11 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/background"
     tools:context=".EditProfileActivity2">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/background"
         android:orientation="horizontal">
         <TextView
             android:layout_width="wrap_content"
@@ -26,6 +28,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:padding="15dp"
+            android:background="@color/background"
             android:onClick="deletUser"
             android:src="@drawable/ic_delete"/>
         <ImageView
@@ -34,6 +37,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:padding="15dp"
+            android:background="@color/background"
             android:onClick="UpdateUser"
             android:src="@drawable/ic_update"/>
 
@@ -43,6 +47,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
            android:padding="15dp"
+            android:background="@color/background"
             android:onClick="UserProfile"
             android:src="@drawable/ic_editprofile"/>
 
@@ -78,6 +83,7 @@
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/background"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="10dp"
         android:layout_marginRight="10dp">
@@ -88,11 +94,13 @@
             android:layout_height="wrap_content"
             android:background="@drawable/btn"
             android:hint="Name"
+            android:textColor="@color/textcolor"
             android:inputType="text" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
+        android:background="@color/background"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="10dp"
@@ -103,6 +111,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/btn"
+            android:textColor="@color/textcolor"
             android:hint="Phone"
             android:inputType="number" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -114,6 +123,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginRight="10dp"
         android:layout_marginLeft="10dp"
+        android:background="@color/background"
         android:padding="16dp"
         android:entries="@array/ge"/>
     <LinearLayout
@@ -128,6 +138,7 @@
             android:layout_height="wrap_content"
            android:text="Gender:"
             android:textSize="20dp"
+            android:textColor="@color/textcolor"
             android:layout_margin="3dp"
             android:padding="10dp"
             />
@@ -138,12 +149,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Male"
+                android:textColor="@color/textcolor"
                 android:checked="true"/>
             <RadioButton
                 android:id="@+id/radio_Female"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Female"
+                android:textColor="@color/textcolor"
                />
 
     </LinearLayout>
@@ -157,6 +170,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/spinner2"
+            android:background="@color/background"
             android:layout_marginTop="10dp"
             android:layout_marginRight="10dp"
             android:layout_marginLeft="10dp"
@@ -166,6 +180,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/spinner3"
+            android:background="@color/background"
             android:layout_marginTop="10dp"
             android:padding="16dp"
             android:entries="@array/Month"/>
@@ -173,6 +188,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/spinner4"
+            android:background="@color/background"
             android:layout_marginTop="10dp"
             android:layout_marginRight="5dp"
             android:layout_marginLeft="5dp"
@@ -193,6 +209,7 @@
         android:onClick="Savedata"
         android:backgroundTint="#05ADD1"
         android:text="@string/savedata"
+        android:textColor="@color/white"
         android:textAllCaps="false"
         android:textSize="20sp" />
 
@@ -204,6 +221,7 @@
         android:layout_gravity="center_horizontal"
         android:background="@drawable/btn"
         android:backgroundTint="#05ADD1"
+        android:textColor="@color/white"
         android:onClick="Delete"
         android:text="@string/delete"
         android:textAllCaps="false"

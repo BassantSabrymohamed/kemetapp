@@ -2,6 +2,7 @@ package com.example.myapplication.ui;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -37,6 +38,19 @@ public class LoginActivity extends AppCompatActivity {
         progressBar=findViewById(R.id.progress);
         //firebase
         firebaseAuth=FirebaseAuth.getInstance();
+
+        boolean isDark=  getSharedPreferences("theme",MODE_PRIVATE)
+
+                .getBoolean("themeSelected",false);
+
+        if (isDark){
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+
+        }else{
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+
+        }
+
 
 
         findViewById(R.id.back).setOnClickListener(new View.OnClickListener() {

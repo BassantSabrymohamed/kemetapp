@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/background"
     tools:context=".ui.LoginActivity">
 
     <LinearLayout
@@ -54,6 +55,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/btn"
+                android:textColor="@color/textcolor"
                 android:hint="@string/please_enter_your_email"
                 android:inputType="textEmailAddress" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -72,6 +74,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/btn"
+                android:textColor="@color/textcolor"
                 android:hint="please Enter Your Password"
                 android:inputType="textPassword" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -82,7 +85,7 @@
             android:layout_margin="8dp"
             android:onClick="forget"
             android:text="@string/forget_password"
-            android:textColor="@color/black" />
+            android:textColor="@color/textcolor" />
 
         <Button
 
@@ -94,6 +97,7 @@
             android:background="@drawable/btn"
             android:backgroundTint="#05ADD1"
             android:text="@string/login"
+            android:textColor="@color/textcolor"
             android:textAllCaps="false"
             android:textSize="20sp" />
         <TextView
@@ -102,7 +106,7 @@
             android:layout_margin="8dp"
             android:text="Or"
            android:layout_gravity="center"
-            android:textColor="@color/black" />
+            android:textColor="@color/textcolor" />
 
 
 
@@ -133,7 +137,7 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_margin="16dp"
-            android:background="@color/white"
+            android:background="@color/background"
             android:padding="16dp"
             android:src="@drawable/search"
 
@@ -143,7 +147,7 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_margin="16dp"
-            android:background="@color/white"
+            android:background="@color/background"
             android:padding="16dp"
             android:src="@drawable/facebook" />
 
@@ -151,7 +155,7 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_margin="16dp"
-            android:background="@color/white"
+            android:background="@color/background"
             android:padding="16dp"
             android:src="@drawable/twitter" />
     </LinearLayout>

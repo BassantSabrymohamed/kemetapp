@@ -1,5 +1,6 @@
 package com.example.myapplication.ui.main.fragmant;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -12,6 +13,8 @@ import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.example.myapplication.ChangePasswordActivity;
+import com.example.myapplication.EditProfileActivity2;
 import com.example.myapplication.R;
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -48,5 +51,17 @@ public class SettingFragment extends Fragment {
         //firebase
         firebaseAuth= FirebaseAuth.getInstance();
 
+        view.findViewById(R.id.btn_update).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getActivity(), EditProfileActivity2.class));
+            }
+        });
+        view.findViewById(R.id.btn_change).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getActivity(), ChangePasswordActivity.class));
+            }
+        });
     }
 }

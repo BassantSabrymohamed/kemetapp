@@ -14,12 +14,13 @@ import android.view.ViewGroup;
 import android.widget.CompoundButton;
 
 import com.example.myapplication.R;
+import com.google.android.material.switchmaterial.SwitchMaterial;
 
 import org.jetbrains.annotations.NotNull;
 
 
 public class DarkModeFragment extends Fragment {
-private SwitchCompat switchCompat;
+private SwitchMaterial switchMaterial;
 
 
     public DarkModeFragment() {
@@ -44,8 +45,8 @@ private SwitchCompat switchCompat;
 
 
         super.onViewCreated(view, savedInstanceState);
-        switchCompat=view.findViewById(R.id.bt_switch);
-        switchCompat.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        switchMaterial=view.findViewById(R.id.bt_switch);
+       switchMaterial.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
                 if (isChecked){

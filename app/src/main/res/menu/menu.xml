@@ -14,12 +14,11 @@
             android:icon="@drawable/ic_setting"
             android:title="@string/setting" />
 
-
         <item
             android:id="@+id/nav_dark"
-            android:checked="false"
+            android:title="@string/darkmode"
             android:icon="@drawable/ic_darkmode"
-            android:title="@string/darkmode" />
+            app:actionLayout="@layout/switch_item" />
 
     </group>
     <group android:checkableBehavior="single">
@@ -34,7 +33,8 @@
         <item
             android:id="@+id/nav_logout"
             android:icon="@drawable/ic_logout"
-            android:title="@string/logout" />
+            android:title="@string/logout"
+            />
     </group>
 
 

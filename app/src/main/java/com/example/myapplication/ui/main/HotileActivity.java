@@ -1,6 +1,7 @@
 package com.example.myapplication.ui.main;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -35,6 +36,19 @@ public class HotileActivity extends AppCompatActivity implements HotileAdapter.O
         recyclerView = findViewById(R.id.recyclerView);
         progressBar=findViewById(R.id.Progress);
         firebaseFirestore = FirebaseFirestore.getInstance();
+
+        boolean isDark=  getSharedPreferences("theme",MODE_PRIVATE)
+
+                .getBoolean("themeSelected",false);
+
+        if (isDark){
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+
+        }else{
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+
+        }
+
 
         findViewById(R.id.back).setOnClickListener(new View.OnClickListener() {
             @Override

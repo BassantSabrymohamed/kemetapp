@@ -3,30 +3,28 @@ package com.example.myapplication;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.os.ConditionVariable;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.CompoundButton;
 import android.widget.Toast;
 
 import com.example.myapplication.data.storage.ModelSaveData;
-import com.example.myapplication.ui.LoginActivity;
 import com.example.myapplication.ui.SplachActivity;
 import com.example.myapplication.ui.main.fragmant.DarkModeFragment;
 import com.example.myapplication.ui.main.fragmant.HomeFragment;
 import com.example.myapplication.ui.main.fragmant.LanguageFragment;
-import com.example.myapplication.ui.main.fragmant.LogoutFragment;
 import com.example.myapplication.ui.main.fragmant.ProfileFragment;
 import com.example.myapplication.ui.main.fragmant.SettingFragment;
 import com.google.android.material.navigation.NavigationView;
+import com.google.android.material.switchmaterial.SwitchMaterial;
 import com.google.firebase.auth.FirebaseAuth;
 
 import org.jetbrains.annotations.NotNull;
@@ -36,6 +34,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private NavigationView navigationView;
     private Toolbar toolbar;
     private FirebaseAuth firebaseAuth;
+    private SwitchMaterial switchMaterial;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,6 +44,35 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         navigationView=findViewById(R.id.nav_menu);
         toolbar=findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        switchMaterial=findViewById(R.id.bt_switch);
+
+        switchMaterial.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked){
+                    saveTheme(true);
+                }else {
+                    saveTheme(false);
+                }
+
+            }
+
+            private void saveTheme(boolean b) {
+                getSharedPreferences("theme",MODE_PRIVATE)
+                        .edit()
+                        .putBoolean("themeSelected",b)
+                        .apply();
+
+                if (b){
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+
+                }else{
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+
+                }
+            }
+        });
         navigationView.setNavigationItemSelectedListener(this);
         ActionBarDrawerToggle actionBarDrawerToggle=new ActionBarDrawerToggle(MainActivity.this,
                 drawerLayout,
@@ -72,6 +100,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 break;
 
             case R.id.nav_dark:
+
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new DarkModeFragment()).commit();
                 break;
             case R.id.nav_profile:
@@ -87,6 +116,24 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
     }
+
+
+    private void saveTheme(boolean b) {
+        getSharedPreferences("theme",MODE_PRIVATE)
+                .edit()
+                .putBoolean("themeSelected",b)
+                .apply();
+
+        if (b){
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+
+        }else{
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+
+        }
+    }
+
+
 
     private void logout() {
         ModelSaveData modaldata=new ModelSaveData(this);

@@ -3,6 +3,7 @@ package com.example.myapplication;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -51,9 +52,6 @@ public class EditProfileActivity2 extends AppCompatActivity {
     private FirebaseFirestore db=FirebaseFirestore.getInstance();
     private DocumentReference data=db.document("User/profile");
 
-
-
-
     private ProgressBar progressBar;
     private EditText Name, Phone;
     private Button savedata;
@@ -85,12 +83,54 @@ public class EditProfileActivity2 extends AppCompatActivity {
         savedata = findViewById(R.id.Savedata);
 
 
+        boolean isDark=  getSharedPreferences("theme",MODE_PRIVATE)
+
+                .getBoolean("themeSelected",false);
+
+        if (isDark){
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+
+        }else{
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+
+        }
 
 
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        data.addSnapshotListener(this,new EventListener<DocumentSnapshot>() {
+            @Override
+            public void onEvent( DocumentSnapshot documentSnapshot,  FirebaseFirestoreException e) {
+
+                if ( e != null){
+                    Toast.makeText(EditProfileActivity2.this, "Error while loading !", Toast.LENGTH_SHORT).show();
+                    Log.d(TAG,e.toString());
+                    return;
+                }
+                if (documentSnapshot.exists()) {
+                    String name = documentSnapshot.getString(KEY_Name);
+                    String phone = documentSnapshot.getString(KEY_Phone);
+                    String Nationality = documentSnapshot.getString(KEY_Nationality);
+                    String gender = documentSnapshot.getString(KEY_Gender);
+                    String day = documentSnapshot.getString(KEY_Day);
+                    String month = documentSnapshot.getString(KEY_Month);
+                    String year = documentSnapshot.getString(KEY_Year);
 
 
+                    Name.setText( name);
+                    Phone.setText( phone);
+                }
+                else {
+                    Name.setText(" ");
+                    Phone.setText(" ");
+
+                }
+                }
+        });
+    }
 
     public void Savedata (View v){
         String name=Name.getText().toString();

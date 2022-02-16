@@ -1,6 +1,7 @@
 package com.example.myapplication.ui.main;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -39,6 +40,18 @@ public class DriverActivity extends AppCompatActivity {
                 finish();
             }
         });
+        boolean isDark=  getSharedPreferences("theme",MODE_PRIVATE)
+
+                .getBoolean("themeSelected",false);
+
+        if (isDark){
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+
+        }else{
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+
+        }
+
 
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager((DriverActivity.this)));
