@@ -18,7 +18,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="App Dark Mode"
+        android:text="@string/app_dark_mode"
         android:textSize="20sp"
        android:textColor="@color/textcolor"
         android:layout_marginTop="50dp"
@@ -26,14 +26,14 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Lorem ipsum dolor sit "
+        android:text="@string/lorem_ipsum_dolor_sit"
         android:layout_marginTop="20dp"
         android:textColor="@color/textcolor"
         android:layout_gravity="center_horizontal"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="amet,consetetur "
+        android:text="@string/amet_consetetur"
         android:textColor="@color/textcolor"
         android:layout_gravity="center_horizontal"/>
     <com.google.android.material.switchmaterial.SwitchMaterial

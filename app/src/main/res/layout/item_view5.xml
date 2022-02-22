@@ -18,7 +18,6 @@
             android:layout_height="90dp"
             android:layout_margin="16dp"
             android:scaleType="fitXY"
-            android:background="@color/background"
             android:src="@drawable/gamer" />
 
         <LinearLayout

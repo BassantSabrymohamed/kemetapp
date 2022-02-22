@@ -82,6 +82,12 @@ public class EditProfileActivity2 extends AppCompatActivity {
         //onclickl
         savedata = findViewById(R.id.Savedata);
 
+        findViewById(R.id.back).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
 
         boolean isDark=  getSharedPreferences("theme",MODE_PRIVATE)
 
@@ -233,9 +239,6 @@ public void UpdateUser(View v){
 
 
 
-    public void UserProfile(View view) {
-        startActivity(new Intent(EditProfileActivity2.this, ProfileFragment.class));
-    }
 
 
 

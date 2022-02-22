@@ -41,7 +41,7 @@
                    android:layout_marginLeft="16dp"
                    android:layout_marginRight="16dp"/>
                <TextView
-                   android:id="@+id/emailuser"
+                   android:id="@+id/Name"
                    android:layout_width="match_parent"
                    android:layout_height="wrap_content"
                    android:textSize="16sp"
@@ -53,7 +53,7 @@
                <TextView
                    android:layout_width="match_parent"
                    android:layout_height="wrap_content"
-                   android:text="UserName"
+                   android:text="@string/username"
                    android:textColor="#05ADD1"
                    android:textSize="18sp"
                    android:textStyle="bold"
@@ -67,10 +67,9 @@
                    android:layout_marginRight="16dp"/>
 
                <TextView
-                   android:id="@+id/userphone"
+                   android:id="@+id/phone"
                    android:layout_width="match_parent"
                    android:layout_height="wrap_content"
-                   android:text="010456"
                    android:textColor="@color/textcolor"
                    android:textSize="16sp"
                    android:textStyle="bold"
@@ -80,7 +79,7 @@
                <TextView
                    android:layout_width="match_parent"
                    android:layout_height="wrap_content"
-                   android:text="Phone"
+                   android:text="@string/phone"
                    android:textColor="#05ADD1"
                    android:textSize="18sp"
                    android:textStyle="bold"
@@ -106,14 +105,14 @@
            app:cardBackgroundColor="@color/white">
            <LinearLayout
                android:layout_width="match_parent"
-               android:layout_height="wrap_content"
+               android:layout_height="match_parent"
                android:background="@color/background"
                android:orientation="vertical">
 
                <TextView
                    android:layout_width="match_parent"
                    android:layout_height="wrap_content"
-                   android:text="Setting"
+                   android:text="@string/setting"
                    android:textSize="18sp"
                    android:textStyle="bold"
                    android:textColor="#05ADD1"
@@ -140,7 +139,7 @@
                        <TextView
                            android:layout_width="match_parent"
                            android:layout_height="wrap_content"
-                           android:text="Update Profile"
+                           android:text="@string/update_profile"
                            android:textColor="@color/textcolor"
                            android:textStyle="bold"
                            android:padding="10dp"/>
@@ -173,7 +172,7 @@
                        <TextView
                            android:layout_width="match_parent"
                            android:layout_height="wrap_content"
-                           android:text="Change Password"
+                           android:text="@string/change_password"
                            android:textColor="@color/textcolor"
                            android:textStyle="bold"
                            android:padding="10dp"/>
@@ -185,8 +184,53 @@
                            />
 
                    </LinearLayout>
-               </LinearLayout>
 
+
+               </LinearLayout>
+               <LinearLayout
+                   android:id="@+id/btn_language"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:layout_marginTop="8dp"
+                   android:orientation="horizontal">
+                   <ImageView
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:layout_gravity="center_vertical"
+                       android:padding="8dp"
+                       android:src="@drawable/ic_language"/>
+                   <LinearLayout
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:background="@color/background"
+                       android:orientation="vertical">
+                       <TextView
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:text="@string/language"
+                           android:textColor="@color/textcolor"
+                           android:textStyle="bold"
+                           android:padding="5dp"/>
+                       <TextView
+                           android:id="@+id/selectedLang"
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:text="English"
+                           android:textColor="@color/textcolor"
+                           android:textSize="16sp"
+                           android:layout_marginLeft="5dp"
+                           android:textStyle="bold" />
+                       <View
+                           android:layout_width="match_parent"
+                           android:layout_height="1dp"
+                           android:padding="8dp"
+                           android:background="#707070"
+                           />
+
+                   </LinearLayout>
+
+
+               </LinearLayout>
            </LinearLayout>
 
 

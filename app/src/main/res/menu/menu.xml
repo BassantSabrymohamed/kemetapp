@@ -6,7 +6,7 @@
             android:id="@+id/nav_home"
             android:checked="false"
             android:icon="@drawable/ic_home"
-            android:title="Home" />
+            android:title="@string/home" />
 
         <item
             android:id="@+id/nav_setting"
@@ -14,11 +14,14 @@
             android:icon="@drawable/ic_setting"
             android:title="@string/setting" />
 
+
+
         <item
             android:id="@+id/nav_dark"
             android:title="@string/darkmode"
+            android:checked="false"
             android:icon="@drawable/ic_darkmode"
-            app:actionLayout="@layout/switch_item" />
+           />
 
     </group>
     <group android:checkableBehavior="single">
@@ -26,10 +29,6 @@
             android:id="@+id/nav_profile"
             android:icon="@drawable/ic_profile"
             android:title="@string/profile" />
-        <item
-            android:id="@+id/av_language"
-            android:icon="@drawable/ic_language"
-            android:title="@string/language" />
         <item
             android:id="@+id/nav_logout"
             android:icon="@drawable/ic_logout"

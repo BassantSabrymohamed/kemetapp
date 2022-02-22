@@ -25,7 +25,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="Login"
+            android:text="@string/login"
             android:textColor="#05ADD1"
             android:textSize="25sp" />
     </LinearLayout>
@@ -75,7 +75,7 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/btn"
                 android:textColor="@color/textcolor"
-                android:hint="please Enter Your Password"
+                android:hint="@string/please_enter_your_email"
                 android:inputType="textPassword" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -114,7 +114,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
-            android:text="Don’t have an account? SignUp"
+            android:text="@string/don_t_have_an_account_signup"
             android:textSize="20dp"
             android:layout_gravity="center"
             android:onClick="signup"

@@ -16,11 +16,7 @@
     <string name="next">Next</string>
     <string name="profile">profile</string>
     <string name="home">Home</string>
-    <string name="frindes">Frindes</string>
-    <string name="chats">Chats</string>
-    <string name="others">Others</string>
     <string name="setting">Setting</string>
-    <string name="about">about</string>
     <string name="logout">Logout</string>
     <string name="please_enter_user_name">please Enter User Name</string>
     <string name="please_enter_your_email">Please Enter Your Email</string>
@@ -35,6 +31,33 @@
     <string name="Email">BassantSabry207@gamil.com</string>
     <string name="open">Open</string>
     <string name="close">Close</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="search">search</string>
+    <string name="account">Account</string>
+    <string name="phone">phone</string>
+    <string name="savedata">SaveData</string>
+    <string name="gender">Gender</string>
+    <string name="month">Month</string>
+    <string name="year">Year</string>
+    <string name="day">Day</string>
+    <string name="load">load</string>
+    <string name="delete">Delete</string>
+    <string name="choose_language">Choose Language</string>
+    <string name="english">English</string>
+    <string name="Arabic">عربي</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="don_t_have_an_account_signup">Don’t have an account? SignUp</string>
+    <string name="kemet">Kemet</string>
+    <string name="loading">loading....</string>
+    <string name="app_dark_mode">App Dark Mode</string>
+    <string name="lorem_ipsum_dolor_sit">Lorem ipsum dolor sit</string>
+    <string name="amet_consetetur">amet,consetetur</string>
+    <string name="username">UserName</string>
+    <string name="update_profile">Update Profile</string>
+    <string name="change_password">Change Password</string>
 
 
     <string-array name="ge">
@@ -139,20 +162,6 @@
     </string-array>
 
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="favrite">favrite</string>
-    <string name="search">search</string>
-    <string name="account">Account</string>
-    <string name="phone">phone</string>
-    <string name="savedata">SaveData</string>
-    <string name="gender">Gender</string>
-    <string name="nationalty">Nationalty</string>
-    <string name="month">Month</string>
-    <string name="year">Year</string>
-    <string name="day">Day</string>
-    <string name="load">load</string>
-    <string name="delete">Delete</string>
 
 
 </resources>

@@ -3,7 +3,6 @@ package com.example.myapplication;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
@@ -13,14 +12,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.CompoundButton;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.myapplication.data.storage.ModelSaveData;
 import com.example.myapplication.ui.SplachActivity;
 import com.example.myapplication.ui.main.fragmant.DarkModeFragment;
 import com.example.myapplication.ui.main.fragmant.HomeFragment;
-import com.example.myapplication.ui.main.fragmant.LanguageFragment;
 import com.example.myapplication.ui.main.fragmant.ProfileFragment;
 import com.example.myapplication.ui.main.fragmant.SettingFragment;
 import com.google.android.material.navigation.NavigationView;
@@ -34,45 +33,22 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private NavigationView navigationView;
     private Toolbar toolbar;
     private FirebaseAuth firebaseAuth;
+    private TextView title;
     private SwitchMaterial switchMaterial;
+    LinearLayout av_language;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         firebaseAuth=FirebaseAuth.getInstance();
         drawerLayout=findViewById(R.id.drawer);
+        title=findViewById(R.id.title);
         navigationView=findViewById(R.id.nav_menu);
         toolbar=findViewById(R.id.toolbar);
+
         setSupportActionBar(toolbar);
 
-        switchMaterial=findViewById(R.id.bt_switch);
 
-        switchMaterial.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked){
-                    saveTheme(true);
-                }else {
-                    saveTheme(false);
-                }
-
-            }
-
-            private void saveTheme(boolean b) {
-                getSharedPreferences("theme",MODE_PRIVATE)
-                        .edit()
-                        .putBoolean("themeSelected",b)
-                        .apply();
-
-                if (b){
-                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-
-                }else{
-                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-
-                }
-            }
-        });
         navigationView.setNavigationItemSelectedListener(this);
         ActionBarDrawerToggle actionBarDrawerToggle=new ActionBarDrawerToggle(MainActivity.this,
                 drawerLayout,
@@ -89,25 +65,32 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     }
 
+
+
+
+
+
+
     @Override
     public boolean onNavigationItemSelected(@NonNull @NotNull MenuItem item) {
         switch (item.getItemId()){
+
             case R.id.nav_home:
+
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new HomeFragment()).commit();
                 break;
+
             case R.id.nav_setting:
+
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new SettingFragment()).commit();
                 break;
-
             case R.id.nav_dark:
 
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new DarkModeFragment()).commit();
                 break;
             case R.id.nav_profile:
+
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new ProfileFragment()).commit();
-                break;
-            case R.id.av_language:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new LanguageFragment()).commit();
                 break;
             case R.id.nav_logout:
                logout();
@@ -115,22 +98,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
-    }
-
-
-    private void saveTheme(boolean b) {
-        getSharedPreferences("theme",MODE_PRIVATE)
-                .edit()
-                .putBoolean("themeSelected",b)
-                .apply();
-
-        if (b){
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-
-        }else{
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-
-        }
     }
 
 

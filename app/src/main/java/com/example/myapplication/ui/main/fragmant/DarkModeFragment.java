@@ -18,6 +18,8 @@ import com.google.android.material.switchmaterial.SwitchMaterial;
 
 import org.jetbrains.annotations.NotNull;
 
+import static android.content.Context.MODE_PRIVATE;
+
 
 public class DarkModeFragment extends Fragment {
 private SwitchMaterial switchMaterial;
@@ -37,22 +39,51 @@ private SwitchMaterial switchMaterial;
 
     @Override
     public void onViewCreated(@NonNull @NotNull View view, @Nullable  Bundle savedInstanceState) {
-        if (AppCompatDelegate.getDefaultNightMode()==AppCompatDelegate.MODE_NIGHT_YES){
-            setTheme(R.style.Theme_Dark);
-        }else{
-           setTheme(R.style.Theme_Light);
-        }
+     //   if (AppCompatDelegate.getDefaultNightMode()==AppCompatDelegate.MODE_NIGHT_YES){
+          //  setTheme(R.style.Theme_Dark);
+       // }else{
+        //   setTheme(R.style.Theme_Light);
+       // }
 
 
         super.onViewCreated(view, savedInstanceState);
-        switchMaterial=view.findViewById(R.id.bt_switch);
-       switchMaterial.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+       // switchMaterial=view.findViewById(R.id.bt_switch);
+      // switchMaterial.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+           // @Override
+            //public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
+               // if (isChecked){
+                //    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+
+              //  }else {
+                  //  AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+
+               // }
+           // }
+       // });
+
+        switchMaterial= view.findViewById(R.id.bt_switch);
+
+        switchMaterial.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked){
+                    saveTheme(true);
+                }else {
+                    saveTheme(false);
+                }
+
+            }
+
+            private void saveTheme(boolean b) {
+               getActivity(). getSharedPreferences("theme",MODE_PRIVATE)
+                        .edit()
+                        .putBoolean("themeSelected",b)
+                        .apply();
+
+                if (b){
                     AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
 
-                }else {
+                }else{
                     AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
 
                 }
@@ -60,6 +91,6 @@ private SwitchMaterial switchMaterial;
         });
     }
 
-    private void setTheme(int theme_light) {
-    }
+   // private void setTheme(int theme_light) {
+   // }
 }

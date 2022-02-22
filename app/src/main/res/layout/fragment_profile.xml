@@ -11,13 +11,15 @@
         android:layout_height="wrap_content"
         android:background="@color/background"
         android:orientation="horizontal">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="start"
             android:layout_marginTop="20dp"
-            android:layout_marginLeft="20dp"
             android:padding="8dp"
-            android:text="Profile"
+            android:text="@string/profile"
             android:textColor="#05ADD1"
             android:textSize="30sp" />
 
@@ -25,9 +27,9 @@
             android:id="@+id/edit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="185dp"
             android:layout_marginTop="20dp"
             android:padding="15dp"
+            android:layout_gravity="start"
             android:src="@drawable/ic_editprofile" />
     </LinearLayout>
     <ImageView
