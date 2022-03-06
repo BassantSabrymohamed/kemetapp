@@ -47,7 +47,9 @@ import java.util.HashMap;
 
 
 public class ProfileFragment extends Fragment {
+
     private  static final String TAG="EditProfileActivity2";
+    // SharedPreferences key,value
     private static final String KEY_Name="name";
     private static final String KEY_Phone="phone";
     private static final String KEY_Nationality="nationality";
@@ -59,7 +61,7 @@ public class ProfileFragment extends Fragment {
 
     private FirebaseFirestore db=FirebaseFirestore.getInstance();
     private DocumentReference data=db.document("User/profile");
-    private ListenerRegistration dataListerner;
+
 
 
 
@@ -96,6 +98,7 @@ public class ProfileFragment extends Fragment {
     public void onViewCreated(@NonNull @NotNull View view, @Nullable  Bundle savedInstanceState) {
 
         super.onViewCreated(view, savedInstanceState);
+        //findviewbyid xml:
         Image=view.findViewById(R.id.edit);
         Name = view.findViewById(R.id.Name);
         Phone = view.findViewById(R.id.phone);
@@ -105,11 +108,13 @@ public class ProfileFragment extends Fragment {
        Month = view.findViewById(R.id.month);
         Yaer = view.findViewById(R.id.year);
         Image1=view.findViewById(R.id.imageView);
+
+        //findviewbyid firebase:
         progressBar =view. findViewById(R.id.Progress);
         firebaseAuth = FirebaseAuth.getInstance();
         firestore= FirebaseFirestore.getInstance();
 
-
+        //onclick back
         Image.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -119,7 +124,7 @@ public class ProfileFragment extends Fragment {
             }
         });
 
-
+       //method loaddata:
        loaddate();
 
 
@@ -166,4 +171,9 @@ public class ProfileFragment extends Fragment {
 
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        loaddate();
+    }
 }

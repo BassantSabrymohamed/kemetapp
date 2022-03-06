@@ -4,19 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#05ADD1"
+
     tools:context=".ui.SplachActivity">
-    <TextView
+    <ImageView
+        android:background="@drawable/design"
+        android:id="@+id/image"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-       android:text="@string/kemet"
-        android:textColor="#F9E34E"
-        android:textSize="60sp"
-        android:gravity="center"
-        android:fontFamily="@font/playlistcaps"
-        android:textStyle="italic"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"/>
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/splah"
+        tools:layout_editor_absoluteX="-186dp"
+        tools:layout_editor_absoluteY="0dp" />
+
+
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

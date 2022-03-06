@@ -58,6 +58,12 @@
     <string name="username">UserName</string>
     <string name="update_profile">Update Profile</string>
     <string name="change_password">Change Password</string>
+    <string name="already_have_an_account_signup">Already have an account?signup</string>
+
+    <string name="continue_with_google">Continue with Google</string>
+    <string name="continue_with_facebook">Continue with Facebook</string>
+    <string name="ok">Ok</string>
+    <string name="order_car">Order Car</string>
 
 
     <string-array name="ge">
@@ -160,8 +166,6 @@
         <item>2021</item>
         <item>2022</item>
     </string-array>
-
-
 
 
 </resources>

@@ -11,6 +11,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#FDF9D3"
         android:orientation="horizontal">
 
         <ImageView
@@ -26,13 +27,14 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:text="@string/login"
-            android:textColor="#05ADD1"
+            android:textColor="#FFA500"
             android:textSize="25sp" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#FDF9D3"
         android:orientation="vertical">
 
         <ImageView
@@ -95,9 +97,8 @@
             android:layout_gravity="center_horizontal"
             android:layout_margin="8dp"
             android:background="@drawable/btn"
-            android:backgroundTint="#05ADD1"
             android:text="@string/login"
-            android:textColor="@color/textcolor"
+            android:textColor="@color/white"
             android:textAllCaps="false"
             android:textSize="20sp" />
         <TextView
@@ -110,6 +111,60 @@
 
 
 
+
+      <LinearLayout
+          android:id="@+id/btn_google"
+          android:layout_width="300dp"
+          android:layout_height="wrap_content"
+          android:layout_gravity="center_horizontal"
+          android:background="@drawable/btn_goole"
+          android:orientation="horizontal">
+          <ImageView
+              android:layout_width="20dp"
+              android:layout_height="20dp"
+              android:scaleType="fitXY"
+              android:layout_marginLeft="20dp"
+              android:src="@drawable/google"
+              android:layout_marginTop="5dp"/>
+          <TextView
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_gravity="center_horizontal"
+          android:layout_marginTop="5dp"
+              android:gravity="center"
+              android:layout_marginLeft="30dp"
+              android:text="@string/continue_with_google"
+              android:textColor="#EC1616"
+              android:textAllCaps="false"
+              android:textSize="20sp" />
+      </LinearLayout>
+        <LinearLayout
+            android:id="@+id/btn_face"
+            android:layout_marginTop="20dp"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/btn_face"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:src="@drawable/facebo"
+                android:layout_marginTop="5dp"/>
+            <TextView
+                android:id="@+id/facebook"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="5dp"
+                android:gravity="center"
+                android:layout_marginLeft="20dp"
+                android:text="@string/continue_with_facebook"
+                android:textColor="#205ECA"
+                android:textAllCaps="false"
+                android:textSize="20sp" />
+        </LinearLayout>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -118,9 +173,7 @@
             android:textSize="20dp"
             android:layout_gravity="center"
             android:onClick="signup"
-            android:textColor="#05ADD1" />
-
-
+            android:textColor="@color/textcolor" />
     </LinearLayout>
     <ProgressBar
         android:layout_width="wrap_content"
@@ -128,37 +181,6 @@
         android:id="@+id/progress"
         android:layout_gravity="center_horizontal"
         android:visibility="gone"/>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal">
-
-        <ImageButton
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_margin="16dp"
-            android:background="@color/background"
-            android:padding="16dp"
-            android:src="@drawable/search"
-
-            />
-
-        <ImageButton
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_margin="16dp"
-            android:background="@color/background"
-            android:padding="16dp"
-            android:src="@drawable/facebook" />
-
-        <ImageButton
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_margin="16dp"
-            android:background="@color/background"
-            android:padding="16dp"
-            android:src="@drawable/twitter" />
-    </LinearLayout>
 
 
 </LinearLayout>

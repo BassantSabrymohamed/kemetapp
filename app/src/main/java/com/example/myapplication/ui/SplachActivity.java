@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.os.Handler;
 
 import com.example.myapplication.MainActivity;
+import com.example.myapplication.RegisterActivity;
 import com.example.myapplication.data.storage.ModelSaveData;
 import com.example.myapplication.R;
 import com.google.firebase.auth.FirebaseAuth;
@@ -49,7 +50,7 @@ public class SplachActivity extends AppCompatActivity {
                 else
 
                 {
-                    startActivity(new Intent(SplachActivity.this, LoginActivity.class));
+                    startActivity(new Intent(SplachActivity.this, RegisterActivity.class));
                     finish();
 
                 }

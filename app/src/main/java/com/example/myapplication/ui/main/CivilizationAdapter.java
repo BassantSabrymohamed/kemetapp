@@ -82,7 +82,7 @@ public class CivilizationAdapter extends RecyclerView.Adapter<CivilizationAdapte
         public ViewHolder(@NonNull @NotNull View itemView) {
             super(itemView);
             name=itemView.findViewById(R.id.text_item);
-            Image =itemView.findViewById(R.id.image);
+            Image =itemView.findViewById(R.id.image_item);
         }
         void setname(String Name) {
             name.setText(" " + Name);

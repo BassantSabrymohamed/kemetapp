@@ -6,10 +6,12 @@ import androidx.appcompat.app.AppCompatDelegate;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -18,14 +20,20 @@ import com.example.myapplication.R;
 import com.example.myapplication.ui.auth.SignUpActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class LoginActivity extends AppCompatActivity {
+    private  static final String TAG="LoginActivity";
     private ProgressBar progressBar;
     private EditText Email,Pass;
     private Button login;
     private FirebaseAuth firebaseAuth;
+    private LinearLayout linearLayoutgoogle;
+    private LinearLayout linearLayoutface;
+    private AuthCredential credential;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,9 +44,11 @@ public class LoginActivity extends AppCompatActivity {
         Email=findViewById(R.id.Email);
         Pass=findViewById(R.id.Pass);
         progressBar=findViewById(R.id.progress);
+        linearLayoutgoogle=findViewById(R.id.btn_google);
+        linearLayoutface=findViewById(R.id.btn_face);
         //firebase
         firebaseAuth=FirebaseAuth.getInstance();
-
+       //darkmode
         boolean isDark=  getSharedPreferences("theme",MODE_PRIVATE)
 
                 .getBoolean("themeSelected",false);
@@ -52,7 +62,7 @@ public class LoginActivity extends AppCompatActivity {
         }
 
 
-
+      //button back
         findViewById(R.id.back).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -67,7 +77,16 @@ public class LoginActivity extends AppCompatActivity {
                 validationdata();
             }
         });
+      linearLayoutgoogle.setOnClickListener(new View.OnClickListener() {
+          @Override
+          public void onClick(View view) {
+              google();
+          }
+      });
     }
+
+
+
     private void  validationdata(){
         String email=Email.getText().toString().trim();
         String password=Pass.getText().toString().trim();
@@ -121,6 +140,25 @@ public class LoginActivity extends AppCompatActivity {
                 });
 
     }
+    private void google() {
+        firebaseAuth.signInWithCredential(credential)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            // Sign in success, update UI with the signed-in user's information
+                            Log.d(TAG, "signInWithCredential:success");
+                            FirebaseUser user = firebaseAuth.getCurrentUser();
+
+                        } else {
+                            // If sign in fails, display a message to the user.
+                            Log.w(TAG, "signInWithCredential:failure", task.getException());
+
+                        }
+                    }
+                });
+    }
+   
 
     public void forget(View view) {
         startActivity(new Intent(LoginActivity.this, ForgetPasswordActivity.class));

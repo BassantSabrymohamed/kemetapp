@@ -2,7 +2,7 @@
 <androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#05ADD1"
+    android:background="#A52A2A"
     android:id="@+id/toolbar"
     android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 

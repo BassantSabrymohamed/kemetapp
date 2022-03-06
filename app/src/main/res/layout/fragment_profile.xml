@@ -20,7 +20,7 @@
             android:layout_marginTop="20dp"
             android:padding="8dp"
             android:text="@string/profile"
-            android:textColor="#05ADD1"
+            android:textColor="#FFA500"
             android:textSize="30sp" />
 
         <ImageView

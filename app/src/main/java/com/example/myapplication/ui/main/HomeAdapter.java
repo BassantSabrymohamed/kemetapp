@@ -78,7 +78,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder>{
         public ViewHolder(@NonNull @NotNull View itemView) {
             super(itemView);
             name=itemView.findViewById(R.id.text_item);
-            Image =itemView.findViewById(R.id.image);
+            Image =itemView.findViewById(R.id.image_item);
         }
         void setname(String Name) {
             name.setText(" " + Name);
@@ -88,8 +88,8 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder>{
 
             Glide.with(context)
                     .load(url)
-                    .placeholder(R.drawable.d)
-                    .into(Image);
+                    .placeholder(R.drawable.lod)
+                   .into(Image);
         }
     }
 

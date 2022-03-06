@@ -3,7 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    app:cardCornerRadius="20dp">
+    android:layout_marginHorizontal="20.00dp"
+    android:layout_marginTop="25.00dp"
+    app:cardElevation="20.00dp"
+    app:cardCornerRadius="25.00dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -60,7 +63,7 @@
                 android:layout_margin="8dp"
                 android:background="@drawable/btn"
                 android:backgroundTint="#05ADD1"
-                android:text="@string/order"
+                android:text="@string/ok"
                 android:textAllCaps="false"
                 android:textSize="20sp" />
         </LinearLayout>

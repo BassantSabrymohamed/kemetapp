@@ -31,10 +31,11 @@ public class CivilizationActivity extends AppCompatActivity implements Civilizat
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_civilization);
+        //findviewbyid
         recyclerView = findViewById(R.id.recyclerView);
         progressBar=findViewById(R.id.Progress);
         firebaseFirestore = FirebaseFirestore.getInstance();
-
+             //darkmode
       boolean isDark=  getSharedPreferences("theme",MODE_PRIVATE)
 
                 .getBoolean("themeSelected",false);
@@ -46,6 +47,7 @@ public class CivilizationActivity extends AppCompatActivity implements Civilizat
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
 
         }
+        //onclick back
 
         findViewById(R.id.back).setOnClickListener(new View.OnClickListener() {
             @Override

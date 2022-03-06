@@ -85,7 +85,7 @@ public class HotileAdapter extends RecyclerView.Adapter<HotileAdapter.ViewHolder
         public ViewHolder(@NonNull @NotNull View itemView) {
             super(itemView);
             name=itemView.findViewById(R.id.text_item);
-            Image =itemView.findViewById(R.id.image);
+            Image =itemView.findViewById(R.id.image_item);
         }
         void setname(String Name) {
             name.setText(" " + Name);
@@ -95,7 +95,7 @@ public class HotileAdapter extends RecyclerView.Adapter<HotileAdapter.ViewHolder
 
             Glide.with(context)
                     .load(url)
-                    .placeholder(R.drawable.d)
+                    .placeholder(R.drawable.lod)
                     .into(Image);
         }
     }

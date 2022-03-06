@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:background="#05ADD1">
+        android:background="#A52A2A">
         <ImageView
             android:id="@+id/back"
             android:padding="8dp"
@@ -28,7 +28,7 @@
             android:layout_weight="1"
             android:textSize="20sp"
             android:textStyle="bold"
-            android:textColor="@color/textcolor"
+            android:textColor="#FFA500"
             android:gravity="center"
             />
 

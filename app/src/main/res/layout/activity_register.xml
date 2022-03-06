@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RegisterActivity">
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/kk"
+        android:background="@drawable/design"
+        tools:layout_editor_absoluteX="-186dp"
+        tools:layout_editor_absoluteY="0dp" />
+    <Button
+        android:id="@+id/SignUp"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+         android:layout_marginTop="550dp"
+      android:layout_centerHorizontal="true"
+        android:backgroundTint="#010723"
+        android:onClick="signin"
+        android:background="@drawable/btn"
+        android:textColor="@color/white"
+        android:text="CREATE ACCOUNT"
+        android:textAllCaps="false"
+        android:textSize="20sp" />
+    <Button
+        android:id="@+id/login"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+       android:layout_marginTop="610dp"
+        android:layout_centerHorizontal="true"
+        android:backgroundTint="#010723"
+        android:onClick="login"
+        android:background="@drawable/btn"
+        android:textColor="@color/white"
+        android:text="SIGNIN"
+        android:textAllCaps="false"
+        android:textSize="20sp" />
+
+
+
+</RelativeLayout>
+
+

@@ -52,10 +52,6 @@ public class DriverAdapter extends RecyclerView.Adapter<DriverAdapter.ViewHolder
     class ViewHolder extends RecyclerView.ViewHolder {
         TextView carmodel;
         TextView name;
-        ImageView star1;
-        ImageView star2;
-        ImageView star3;
-        ImageView star4;
         ImageView image;
         Button orderdriver;
 
@@ -64,10 +60,7 @@ public class DriverAdapter extends RecyclerView.Adapter<DriverAdapter.ViewHolder
             super(itemView);
             carmodel = itemView.findViewById(R.id.CarModel);
             name = itemView.findViewById(R.id.Name);
-            star1 = itemView.findViewById(R.id.Star1);
-            star2 = itemView.findViewById(R.id.Star2);
-            star3 = itemView.findViewById(R.id.Star3);
-            star4 = itemView.findViewById(R.id.Star4);
+
             image = itemView.findViewById(R.id.Image);
             orderdriver = itemView.findViewById(R.id.order);
         }
@@ -84,7 +77,7 @@ public class DriverAdapter extends RecyclerView.Adapter<DriverAdapter.ViewHolder
 
             Glide.with(context)
                     .load(url)
-                    .placeholder(R.drawable.car)
+                    .placeholder(R.drawable.lod)
                     .into(image);
         }
 
